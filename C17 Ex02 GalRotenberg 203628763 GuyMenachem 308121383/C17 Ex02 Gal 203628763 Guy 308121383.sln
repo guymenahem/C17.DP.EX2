@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{36D23406-BDEB-4CB0-9C02-DC711D5B369D}"
+	ProjectSection(SolutionItems) = preProject
+		C17 Ex02 GalRotenberg 203628763 GuyMenachem 308121383\C17 Ex02 Gal 203628763 Guy 308121383.docx = C17 Ex02 GalRotenberg 203628763 GuyMenachem 308121383\C17 Ex02 Gal 203628763 Guy 308121383.docx
+		C17 Ex02 GalRotenberg 203628763 GuyMenachem 308121383\Exercise checking report.txt = C17 Ex02 GalRotenberg 203628763 GuyMenachem 308121383\Exercise checking report.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookUI", "C17 Ex02 GalRotenberg 203628763 GuyMenachem 308121383\FacebookUI\FacebookUI.csproj", "{6C78834A-E2E4-40F8-87DB-D9DC9D361141}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookLogicUnit", "C17 Ex02 GalRotenberg 203628763 GuyMenachem 308121383\OurLibrary\FacebookLogicUnit.csproj", "{930051C9-4935-4E8B-91EF-E639DCA98359}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C78834A-E2E4-40F8-87DB-D9DC9D361141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C78834A-E2E4-40F8-87DB-D9DC9D361141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C78834A-E2E4-40F8-87DB-D9DC9D361141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C78834A-E2E4-40F8-87DB-D9DC9D361141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{930051C9-4935-4E8B-91EF-E639DCA98359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{930051C9-4935-4E8B-91EF-E639DCA98359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{930051C9-4935-4E8B-91EF-E639DCA98359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{930051C9-4935-4E8B-91EF-E639DCA98359}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
