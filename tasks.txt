@@ -1,0 +1,9 @@
+1. Async load to first page
+2. Change the events + posts to data binding
+--------------------------------------------------
+a. Singleton to Logon User.
+b. ILikeable to be object proxy for Post, Picture 
+	b.1. each one composite to legacy post/picture
+	b.2. implemepnt interface to ILikeable - new commponent (our UI application).
+	b.3. change the button to work with the proxy
+c. keep it for next time
