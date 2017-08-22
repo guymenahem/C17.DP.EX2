@@ -117,6 +117,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             resources.GetString("comboBoxPosts.Items3")});
             resources.ApplyResources(this.comboBoxPosts, "comboBoxPosts");
             this.comboBoxPosts.Name = "comboBoxPosts";
+            this.comboBoxPosts.SendToBack();
             // 
             // labelTODO
             // 
@@ -132,6 +133,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             resources.GetString("comboBoxEvents.Items2")});
             resources.ApplyResources(this.comboBoxEvents, "comboBoxEvents");
             this.comboBoxEvents.Name = "comboBoxEvents";
+            this.comboBoxEvents.BringToFront();
             // 
             // ActionButton
             // 
@@ -192,12 +194,14 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // 
             resources.ApplyResources(this.CommentTextBox, "CommentTextBox");
             this.CommentTextBox.Name = "CommentTextBox";
+            this.CommentTextBox.SendToBack();
             // 
             // pictureBoxEvents
             // 
             resources.ApplyResources(this.pictureBoxEvents, "pictureBoxEvents");
             this.pictureBoxEvents.Name = "pictureBoxEvents";
             this.pictureBoxEvents.TabStop = false;
+            this.pictureBoxEvents.BringToFront();
             // 
             // FavoritesTab
             // 
@@ -267,6 +271,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.buttonNextPhoto.Name = "buttonNextPhoto";
             this.buttonNextPhoto.UseVisualStyleBackColor = true;
             this.buttonNextPhoto.Click += new System.EventHandler(this.buttonNextPhoto_Click);
+            this.buttonNextPhoto.Enabled = false;
             // 
             // buttonPrevPhoto
             // 
@@ -274,6 +279,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.buttonPrevPhoto.Name = "buttonPrevPhoto";
             this.buttonPrevPhoto.UseVisualStyleBackColor = true;
             this.buttonPrevPhoto.Click += new System.EventHandler(this.buttonPrevPhoto_Click);
+            this.buttonPrevPhoto.Enabled = false;
             // 
             // buttonClear
             // 
@@ -311,12 +317,14 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // 
             resources.ApplyResources(this.labelName, "labelName");
             this.labelName.Name = "labelName";
+            this.labelName.Hide();
             // 
             // pictureBoxProfile
             // 
             resources.ApplyResources(this.pictureBoxProfile, "pictureBoxProfile");
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.TabStop = false;
+            this.pictureBoxProfile.Hide();
             // 
             // TabControl
             // 

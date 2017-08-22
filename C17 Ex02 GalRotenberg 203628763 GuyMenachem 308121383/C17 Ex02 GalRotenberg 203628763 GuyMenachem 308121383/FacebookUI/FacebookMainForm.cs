@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using FacebookLogicUnit;
 using OurLibrary;
 using FacebookWrapper;
+using System.Threading;
 
 namespace C17_Ex01_Gal_203628763_Guy_308121383
 {
@@ -84,6 +85,40 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
         private void LoginProccess()
         {
+            /// <summary>
+            /// initiate login process:
+            /// 1. initializing photos of user.
+            /// 2. initializing data to the form using multi-threading for UI
+            /// </summary>
+            /// 
+
+            this.InitializeComponentsForLogIN();
+
+            // set list view
+            this.listViewPrevPosts.Columns.Add(string.Empty, string.Empty, this.listViewPrevPosts.Width - 20);
+
+            // Get Posts
+            this.addStringsToListView(this.listViewPrevPosts, m_AppManager.FetchPosts());
+            
+
+            // Get Albums
+            new Thread(GetAlbums).Start();
+
+
+            // Add events
+            new Thread(GetEvents).Start();
+
+
+            // Add tagged posts
+            new Thread(GetTaggedPosts).Start();
+            
+            
+            // Load all favorits page
+            new Thread(this.loadFavoritsPage).Start();
+        }
+
+        private void InitializeComponentsForLogIN()
+        {
             this.buttonLogIn.Hide();
             this.pictureBoxCoverPhoto.SendToBack();
             this.pictureBoxCoverPhoto.LoadAsync(m_AppManager.CoverPhoto);
@@ -92,34 +127,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.labelName.Text = m_AppManager.UserName;
             this.labelName.Show();
             this.listViewPrevPosts.View = View.Details;
-
-            // set list view
-            this.listViewPrevPosts.Columns.Add(string.Empty, string.Empty, this.listViewPrevPosts.Width - 20);
-
-            // Get Posts
-            this.addStringsToListView(this.listViewPrevPosts, m_AppManager.FetchPosts());
-
-            // Get Albums
-            foreach (FacebookAlbum album in m_AppManager.FetchAlbums())
-            {
-                this.listBoxAlbums.Items.Add(album);
-            }
-
-           // Add events
             this.TabControl.Enabled = true;
-            foreach(FacebookEvent fbE in m_AppManager.FetchEvents())
-            {
-                this.checkedListBoxEvents.Items.Add(fbE);
-            }
-
-            // Add tagged posts
-            foreach(FacebookPost fbP in m_AppManager.FetchTaggedPosts())
-            {
-                this.checkedListBoxPosts.Items.Add(fbP);
-            }
-            
-            // Load all favorits page
-            this.loadFavoritsPage();
         }
 
         /// <summary>
@@ -146,6 +154,32 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             newPost.Text = this.textBoxPost.Text;
 
             i_ListView.Items.Insert(0, newPost);
+        }
+
+        private void GetAlbums()
+        {
+            foreach (FacebookAlbum album in m_AppManager.FetchAlbums())
+            {
+                this.listBoxAlbums.Invoke(new Action(() => listBoxAlbums.Items.Add(album)));
+            }
+            this.buttonNextPhoto.Invoke(new Action(() => buttonNextPhoto.Enabled = true));
+            this.buttonPrevPhoto.Invoke(new Action(() => buttonPrevPhoto.Enabled = true));
+        }
+
+        private void GetEvents()
+        {
+            foreach (FacebookEvent fbE in m_AppManager.FetchEvents())
+            {
+                this.checkedListBoxEvents.Invoke(new Action(() => checkedListBoxEvents.Items.Add(fbE)));
+            }
+        }
+
+        private void GetTaggedPosts()
+        {
+            foreach (FacebookPost fbP in m_AppManager.FetchTaggedPosts())
+            {
+                this.checkedListBoxPosts.Invoke(new Action(() => checkedListBoxPosts.Items.Add(fbP)));
+            }
         }
 
         /// <summary>
@@ -195,8 +229,11 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// <param name="e"></param>
         private void buttonPrevPhoto_Click(object sender, EventArgs e)
         {
-            FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
-            this.pictureBoxUserPictures.LoadAsync(album.PrevPhoto.GetPicture());
+            if(this.listBoxAlbums.SelectedIndex>-1)
+            {
+                FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
+                this.pictureBoxUserPictures.LoadAsync(album.PrevPhoto.GetPicture());
+            }
         }
 
         /// <summary>
@@ -206,8 +243,11 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// <param name="e"></param>
         private void buttonNextPhoto_Click(object sender, EventArgs e)
         {
-            FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
-            this.pictureBoxUserPictures.LoadAsync(album.NextPhoto.GetPicture());
+            if (this.listBoxAlbums.SelectedIndex > -1)
+            {
+                FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
+                this.pictureBoxUserPictures.LoadAsync(album.NextPhoto.GetPicture());
+            } 
         }
 
         /// <summary>
@@ -279,23 +319,31 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
                     if (lst.Count != 0)
                     {
-                        if (this.comboBoxEvents.Items[this.comboBoxEvents.SelectedIndex].ToString() == "Attending")
+                        if(this.comboBoxEvents.SelectedIndex>-1)
                         {
-                            this.m_AppManager.AttendTo(lst, "Attending");
-                        }
-                        else if (this.comboBoxEvents.Items[this.comboBoxEvents.SelectedIndex].ToString() == "Maybe")
-                        {
-                            this.m_AppManager.AttendTo(lst, "Maybe");
+                            if (this.comboBoxEvents.Items[this.comboBoxEvents.SelectedIndex].ToString() == "Attending")
+                            {
+                                this.m_AppManager.AttendTo(lst, "Attending");
+                            }
+                            else if (this.comboBoxEvents.Items[this.comboBoxEvents.SelectedIndex].ToString() == "Maybe")
+                            {
+                                this.m_AppManager.AttendTo(lst, "Maybe");
+                            }
+                            else
+                            {
+                                this.m_AppManager.AttendTo(lst, "Not Attending");
+                            }
+
+                            foreach (FacebookEvent _event in lst)
+                            {
+                                this.checkedListBoxEvents.Items.Remove(_event);
+                            }
                         }
                         else
                         {
-                            this.m_AppManager.AttendTo(lst, "Not Attending");
+                            MessageBox.Show("No option has been chosen");
                         }
-
-                        foreach (FacebookEvent _event in lst)
-                        {
-                            this.checkedListBoxEvents.Items.Remove(_event);
-                        }
+                       
                     }
                     else
                     {
@@ -313,47 +361,54 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             {
                 if (checkedListBoxPosts.Items.Count != 0)
                 {
-                    List<FacebookFriend> TaggedReplies = new List<FacebookFriend>();
-                    if (comboBoxPosts.Items[comboBoxPosts.SelectedIndex].ToString() == "Like To All")
+                    if(comboBoxPosts.SelectedIndex>-1)
                     {
-                        m_AppManager.LikeAndComment(checkedListBoxPosts.Items, null);
-                    }
-                    else if (comboBoxPosts.Items[comboBoxPosts.SelectedIndex].ToString() == "Like + Comment To All")
-                    {
-                        if (CommentTextBox.Text == string.Empty)
+                        List<FacebookFriend> TaggedReplies = new List<FacebookFriend>();
+                        if (comboBoxPosts.Items[comboBoxPosts.SelectedIndex].ToString() == "Like To All")
                         {
-                            MessageBox.Show("Empty messages are not allowed.");
+                            m_AppManager.LikeAndComment(checkedListBoxPosts.Items, null);
+                        }
+                        else if (comboBoxPosts.Items[comboBoxPosts.SelectedIndex].ToString() == "Like + Comment To All")
+                        {
+                            if (CommentTextBox.Text == string.Empty)
+                            {
+                                MessageBox.Show("Empty messages are not allowed.");
+                            }
+                            else
+                            {
+                                this.m_AppManager.LikeAndComment(checkedListBoxPosts.Items, CommentTextBox.Text);
+                            }
                         }
                         else
                         {
-                            this.m_AppManager.LikeAndComment(checkedListBoxPosts.Items, CommentTextBox.Text);
+                            if (this.checkedListBoxPosts.CheckedItems.Count != 0)
+                            {
+                                if (this.comboBoxPosts.Items[comboBoxPosts.SelectedIndex].ToString() == "Like To Selected")
+                                {
+                                    this.m_AppManager.LikeAndComment(this.checkedListBoxPosts.CheckedItems, null);
+                                }
+                                else
+                                {
+                                    // Check if message is empty
+                                    if (this.CommentTextBox.Text == string.Empty)
+                                    {
+                                        MessageBox.Show("Empty messages are not allowed");
+                                    }
+                                    else
+                                    {
+                                        this.m_AppManager.LikeAndComment(this.checkedListBoxPosts.CheckedItems, this.CommentTextBox.Text);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("No Posts selected");
+                            }
                         }
                     }
                     else
                     {
-                        if (this.checkedListBoxPosts.CheckedItems.Count != 0)
-                        {
-                            if (this.comboBoxPosts.Items[comboBoxPosts.SelectedIndex].ToString() == "Like To Selected")
-                            {
-                                this.m_AppManager.LikeAndComment(this.checkedListBoxPosts.CheckedItems, null);
-                            }
-                            else
-                            {
-                                // Check if message is empty
-                                if (this.CommentTextBox.Text == string.Empty)
-                                {
-                                    MessageBox.Show("Empty messages are not allowed");
-                                }
-                                else
-                                {
-                                    this.m_AppManager.LikeAndComment(this.checkedListBoxPosts.CheckedItems, this.CommentTextBox.Text);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("No Posts selected");
-                        }
+                        MessageBox.Show("No option has been chosen");
                     }
                 }
                 else
@@ -371,7 +426,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // Load all the friends
             foreach(FacebookFriend friend in this.m_AppManager.FetchFriends())
             {
-                this.checkedListBoxFriends.Items.Add(friend);
+                this.checkedListBoxFriends.Invoke(new Action(() =>this.checkedListBoxFriends.Items.Add(friend)));
             }
         }
 
