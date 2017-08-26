@@ -8,15 +8,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 using static System.Windows.Forms.CheckedListBox;
+using FacebookWrapper;
 
 namespace OurLibrary
 {
-    public class FacebookUser
+    public sealed class FacebookUser
     {
         // Facebook user
+        private static FacebookUser s_Instance = null;
+        private static object m_Lock = new object();
         private FacebookWrapper.ObjectModel.User m_user;
+        private string m_Token;
         private List<FacebookFriend> m_Friends;
 
+        /*
         /// <summary>
         /// Ctor from logged in user - API object
         /// </summary>
@@ -29,6 +34,90 @@ namespace OurLibrary
             {
                 m_Friends.Add(new FacebookFriend(friend));
             }
+        }
+        */
+
+        private FacebookUser(string i_Token)
+        {
+            LoginResult result;
+            if (i_Token==null)
+            {
+                // Repilicated code for check
+                /// (desig patter's "Design Patterns Course App 2.4" app)
+                    result = FacebookService.Login(
+                    "898130767007817",
+                    "public_profile",
+                    "user_education_history",
+                    "user_birthday",
+                    "user_actions.video",
+                    "user_actions.news",
+                    "user_actions.music",
+                    "user_actions.fitness",
+                    "user_actions.books",
+                    "user_about_me",
+                    "user_friends",
+                    "publish_actions",
+                    "user_events",
+                    "user_games_activity",
+                    "user_hometown",
+                    "user_likes",
+                    "user_location",
+                    "user_managed_groups",
+                    "user_photos",
+                    "user_posts",
+                    "user_relationships",
+                    "user_relationship_details",
+                    "user_religion_politics",
+                    "user_tagged_places",
+                    "user_videos",
+                    "user_website",
+                    "user_work_history",
+                    "read_custom_friendlists",
+                    "read_page_mailboxes",
+                    "manage_pages",
+                    "publish_pages",
+                    "publish_actions",
+                    "rsvp_event");
+            }
+            else
+            {
+                result = FacebookService.Connect(i_Token);
+            }
+
+            if (result.LoggedInUser != null)
+            {
+                m_user = result.LoggedInUser;
+                m_Token = result.AccessToken;
+                m_Friends = new List<FacebookFriend>();
+                foreach (User friend in m_user.Friends)
+                {
+                    m_Friends.Add(new FacebookFriend(friend));
+                }
+            }
+            else
+            {
+                throw new TaskCanceledException("Could not Connect to facebook for some reason. Please try agin...");
+            }
+
+        }
+
+        public string Token
+        {
+            get { return m_Token; }
+            private set { m_Token = value; }
+        }
+
+        public static FacebookUser Instance(string i_Token = null) //not exception safe.
+        {
+            if(s_Instance==null)
+            {
+                lock(m_Lock)
+                {
+                    s_Instance = new FacebookUser(i_Token);
+                }
+            }
+
+            return s_Instance;
         }
 
         /// <summary>

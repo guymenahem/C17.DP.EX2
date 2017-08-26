@@ -11,8 +11,6 @@ namespace FacebookLogicUnit
 {
     public class FacebookManager
     {
-        public OurLibrary.FacebookUser User { private get; set; }
-
         /// <summary>
         /// Cover photo URL
         /// </summary>
@@ -21,7 +19,7 @@ namespace FacebookLogicUnit
         {
             get
             {
-                return User.CoverPhoto;
+                return FacebookUser.Instance().CoverPhoto;
             }
         }
 
@@ -33,8 +31,13 @@ namespace FacebookLogicUnit
         {
             get
             {
-                return User.ProfilePictureUrl;
+                return FacebookUser.Instance().ProfilePictureUrl;
             }
+        }
+
+        public void Connect(string i_UserAccessToken)
+        {
+            FacebookUser.Instance(i_UserAccessToken);
         }
 
         /// <summary>
@@ -44,10 +47,16 @@ namespace FacebookLogicUnit
         {
             get
             {
-                return User.Name;
+                return FacebookUser.Instance().Name;
             }
         }
 
+        public void LogIn()
+        {
+            throw new NotImplementedException();
+        }
+
+        /*
         /// <summary>
         /// Connect user to facebook
         /// </summary>
@@ -56,6 +65,7 @@ namespace FacebookLogicUnit
         {
             this.User = new FacebookUser(FacebookService.Connect(userAccessToken).LoggedInUser);
         }
+        */
 
         /// <summary>
         /// Fetch all posts of connected user
@@ -63,7 +73,7 @@ namespace FacebookLogicUnit
         /// <returns>COllection of posts</returns>
         public ICollection<string> FetchPosts()
         {
-            return User.FetchPosts();
+            return FacebookUser.Instance().FetchPosts();
         }
 
         /// <summary>
@@ -72,7 +82,7 @@ namespace FacebookLogicUnit
         /// <returns>get all posts the users taaged at</returns>
         public ICollection<FacebookPost> FetchTaggedPosts()
         {
-            return User.GetTaggedPosts();
+            return FacebookUser.Instance().GetTaggedPosts();
         }
 
         /// <summary>
@@ -81,7 +91,7 @@ namespace FacebookLogicUnit
         /// <returns>Collection of albums</returns>
         public ICollection<FacebookAlbum> FetchAlbums()
         {
-            return User.GetUserAlbums();
+            return FacebookUser.Instance().GetUserAlbums();
         }
 
         /// <summary>
@@ -90,7 +100,7 @@ namespace FacebookLogicUnit
         /// <returns>Collection of the user events</returns>
         public ICollection<FacebookEvent> FetchEvents()
         {
-            return User.FetchEvents();
+            return FacebookUser.Instance().FetchEvents();
         }
 
         /// <summary>
@@ -100,7 +110,7 @@ namespace FacebookLogicUnit
         /// <returns>status</returns>
         public bool PostMessage(string i_Message)
         {
-            return User.Post(i_Message);
+            return FacebookUser.Instance().Post(i_Message);
         }
 
         /// <summary>
@@ -110,7 +120,7 @@ namespace FacebookLogicUnit
         /// <param name="i_AttendStatus">Status of attendetion</param>
         public void AttendTo(List<FacebookEvent> i_Events, string i_AttendStatus)
         {
-            User.AttendTo(i_Events, i_AttendStatus);
+            FacebookUser.Instance().AttendTo(i_Events, i_AttendStatus);
         }
 
         /// <summary>
@@ -119,7 +129,7 @@ namespace FacebookLogicUnit
         /// <returns>Collection of friends</returns>
         public ICollection<FacebookFriend> FetchFriends()
         {
-            return this.User.GetUserFriends();
+            return FacebookUser.Instance().GetUserFriends();
         }
 
         /// <summary>
@@ -129,7 +139,7 @@ namespace FacebookLogicUnit
         /// <returns></returns>
         public ICollection<FacebookPost> GetPostsFromFriends(ICollection<FacebookFriend> i_friends)
         {
-            return this.User.GetFriendsPosts(i_friends);
+            return FacebookUser.Instance().GetFriendsPosts(i_friends);
         }
 
         /// <summary>
@@ -139,12 +149,12 @@ namespace FacebookLogicUnit
         /// <param name="i_Msg">Message</param>
         public void LikeAndComment(ObjectCollection i_TaggedPosts, string i_Msg)
         {
-            User.LikeAndComment(i_TaggedPosts, i_Msg);
+            FacebookUser.Instance().LikeAndComment(i_TaggedPosts, i_Msg);
         }
 
         public void LikeAndComment(CheckedItemCollection i_TaggedPosts, string i_Msg)
         {
-            User.LikeAndComment(i_TaggedPosts, i_Msg);
+            FacebookUser.Instance().LikeAndComment(i_TaggedPosts, i_Msg);
         }
     }
 }
