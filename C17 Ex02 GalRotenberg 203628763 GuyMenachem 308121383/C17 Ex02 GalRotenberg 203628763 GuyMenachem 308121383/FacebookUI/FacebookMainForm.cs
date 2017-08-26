@@ -83,10 +83,20 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.pictureBoxCoverPhoto.LoadAsync(m_AppManager.CoverPhoto);
             this.pictureBoxProfile.LoadAsync(m_AppManager.ProfilePhoto);
             this.pictureBoxProfile.Show();
-            this.labelName.Text = m_AppManager.UserName;
-            this.labelName.Show();
             this.listViewPrevPosts.View = View.Details;
             this.TabControl.Enabled = true;
+
+            ColorChangeLabel cl = new ColorChangeLabel();
+            cl.Top = 92;
+            cl.Left = 26;
+            cl.Text = m_AppManager.UserName;
+            cl.Font = new Font(FontFamily.GenericSansSerif, 14.0F, FontStyle.Bold);
+            cl.AutoSize = true;
+            cl.AdjustColors(this.pictureBoxCoverPhoto);
+
+            this.Controls.Add(cl);
+            cl.BringToFront();
+            
         }
 
         /// <summary>
@@ -435,8 +445,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.pictureBoxCoverPhoto.Image = null;
             this.pictureBoxProfile.Image = null;
             this.pictureBoxProfile.Hide();
-            this.labelName.Text = string.Empty;
-            this.labelName.Hide();
             this.TabControl.Enabled = false;
             this.pictureBoxUserPictures.Image = null;
 
@@ -445,7 +453,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.checkedListBoxEvents.Items.Clear();
             this.checkedListBoxPosts.Items.Clear();
             this.checkedListBoxFriends.Items.Clear();
-            this.listBoxPosts.Items.Clear();
         }
     }
 }
