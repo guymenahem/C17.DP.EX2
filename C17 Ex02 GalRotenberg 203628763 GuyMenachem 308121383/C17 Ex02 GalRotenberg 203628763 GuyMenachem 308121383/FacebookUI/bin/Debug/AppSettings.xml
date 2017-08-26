@@ -2,7 +2,7 @@
 <AppSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <WindowSize>
     <Width>891</Width>
-    <Height>439</Height>
+    <Height>449</Height>
   </WindowSize>
   <WindowsStart>
     <X>0</X>

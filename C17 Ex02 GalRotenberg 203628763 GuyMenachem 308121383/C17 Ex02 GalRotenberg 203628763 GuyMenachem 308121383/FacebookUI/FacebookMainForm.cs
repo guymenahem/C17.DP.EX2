@@ -397,6 +397,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         private void buttonLoadPosts_Click(object sender, EventArgs e)
         {
             List<FacebookFriend> friends = new List<FacebookFriend>();
+            List<FacebookPost> posts = new List<FacebookPost>();
 
             foreach (FacebookFriend fr in this.checkedListBoxFriends.CheckedItems)
             {
@@ -405,21 +406,14 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
             foreach(FacebookPost post in this.m_AppManager.GetPostsFromFriends(friends))
             {
-                this.listBoxPosts.Items.Add(post);
+                //this.listBoxPosts.Items.Add(post);
+                posts.Add(post);
             }
 
+            facebookPostBindingSource.DataSource = posts;
             this.listBoxPosts.DisplayMember = "Description";
         }
 
-        /// <summary>
-        /// Change post 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.textBoxFriendPost.Text = (this.listBoxPosts.SelectedItem as FacebookPost).ToString();
-        }
 
         /// <summary>
         /// Of form closine of main form

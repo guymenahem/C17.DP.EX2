@@ -113,7 +113,10 @@ namespace OurLibrary
             {
                 lock(m_Lock)
                 {
-                    s_Instance = new FacebookUser(i_Token);
+                    if(s_Instance == null)
+                    {
+                        s_Instance = new FacebookUser(i_Token);
+                    }
                 }
             }
 

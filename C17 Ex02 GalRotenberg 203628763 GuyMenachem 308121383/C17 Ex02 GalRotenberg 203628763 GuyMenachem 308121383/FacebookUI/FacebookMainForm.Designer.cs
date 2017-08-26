@@ -35,7 +35,11 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacebookMainForm));
+            System.Windows.Forms.Label descriptionLabel;
+            System.Windows.Forms.Label iDLabel;
+            System.Windows.Forms.Label nameLabel;
             this.buttonLogIn = new System.Windows.Forms.Button();
             this.TodoTab = new System.Windows.Forms.TabPage();
             this.comboBoxPosts = new System.Windows.Forms.ComboBox();
@@ -52,9 +56,9 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.CommentTextBox = new System.Windows.Forms.TextBox();
             this.pictureBoxEvents = new System.Windows.Forms.PictureBox();
             this.FavoritesTab = new System.Windows.Forms.TabPage();
+            this.facebookPostBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonLoadPosts = new System.Windows.Forms.Button();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
-            this.textBoxFriendPost = new System.Windows.Forms.TextBox();
             this.checkedListBoxFriends = new System.Windows.Forms.CheckedListBox();
             this.FacebookTab = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
@@ -72,12 +76,19 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.pictureBoxCoverPhoto = new System.Windows.Forms.PictureBox();
             this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.buttonLogOff = new System.Windows.Forms.Button();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.iDLabel1 = new System.Windows.Forms.Label();
+            this.nameLabel1 = new System.Windows.Forms.Label();
+            descriptionLabel = new System.Windows.Forms.Label();
+            iDLabel = new System.Windows.Forms.Label();
+            nameLabel = new System.Windows.Forms.Label();
             this.TodoTab.SuspendLayout();
             this.TabControlTODO.SuspendLayout();
             this.EventsTab.SuspendLayout();
             this.PostsTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvents)).BeginInit();
             this.FavoritesTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.facebookPostBindingSource)).BeginInit();
             this.FacebookTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPictures)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
@@ -117,7 +128,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             resources.GetString("comboBoxPosts.Items3")});
             resources.ApplyResources(this.comboBoxPosts, "comboBoxPosts");
             this.comboBoxPosts.Name = "comboBoxPosts";
-            this.comboBoxPosts.SendToBack();
             // 
             // labelTODO
             // 
@@ -133,7 +143,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             resources.GetString("comboBoxEvents.Items2")});
             resources.ApplyResources(this.comboBoxEvents, "comboBoxEvents");
             this.comboBoxEvents.Name = "comboBoxEvents";
-            this.comboBoxEvents.BringToFront();
             // 
             // ActionButton
             // 
@@ -194,24 +203,31 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // 
             resources.ApplyResources(this.CommentTextBox, "CommentTextBox");
             this.CommentTextBox.Name = "CommentTextBox";
-            this.CommentTextBox.SendToBack();
             // 
             // pictureBoxEvents
             // 
             resources.ApplyResources(this.pictureBoxEvents, "pictureBoxEvents");
             this.pictureBoxEvents.Name = "pictureBoxEvents";
             this.pictureBoxEvents.TabStop = false;
-            this.pictureBoxEvents.BringToFront();
             // 
             // FavoritesTab
             // 
             resources.ApplyResources(this.FavoritesTab, "FavoritesTab");
+            this.FavoritesTab.Controls.Add(nameLabel);
+            this.FavoritesTab.Controls.Add(this.nameLabel1);
+            this.FavoritesTab.Controls.Add(descriptionLabel);
+            this.FavoritesTab.Controls.Add(this.descriptionTextBox);
+            this.FavoritesTab.Controls.Add(iDLabel);
+            this.FavoritesTab.Controls.Add(this.iDLabel1);
             this.FavoritesTab.Controls.Add(this.buttonLoadPosts);
             this.FavoritesTab.Controls.Add(this.listBoxPosts);
-            this.FavoritesTab.Controls.Add(this.textBoxFriendPost);
             this.FavoritesTab.Controls.Add(this.checkedListBoxFriends);
             this.FavoritesTab.Name = "FavoritesTab";
             this.FavoritesTab.UseVisualStyleBackColor = true;
+            // 
+            // facebookPostBindingSource
+            // 
+            this.facebookPostBindingSource.DataSource = typeof(OurLibrary.FacebookPost);
             // 
             // buttonLoadPosts
             // 
@@ -222,16 +238,10 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // 
             // listBoxPosts
             // 
+            this.listBoxPosts.DataSource = this.facebookPostBindingSource;
             this.listBoxPosts.FormattingEnabled = true;
             resources.ApplyResources(this.listBoxPosts, "listBoxPosts");
             this.listBoxPosts.Name = "listBoxPosts";
-            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
-            // 
-            // textBoxFriendPost
-            // 
-            resources.ApplyResources(this.textBoxFriendPost, "textBoxFriendPost");
-            this.textBoxFriendPost.Name = "textBoxFriendPost";
-            this.textBoxFriendPost.ReadOnly = true;
             // 
             // checkedListBoxFriends
             // 
@@ -271,7 +281,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.buttonNextPhoto.Name = "buttonNextPhoto";
             this.buttonNextPhoto.UseVisualStyleBackColor = true;
             this.buttonNextPhoto.Click += new System.EventHandler(this.buttonNextPhoto_Click);
-            this.buttonNextPhoto.Enabled = false;
             // 
             // buttonPrevPhoto
             // 
@@ -279,7 +288,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.buttonPrevPhoto.Name = "buttonPrevPhoto";
             this.buttonPrevPhoto.UseVisualStyleBackColor = true;
             this.buttonPrevPhoto.Click += new System.EventHandler(this.buttonPrevPhoto_Click);
-            this.buttonPrevPhoto.Enabled = false;
             // 
             // buttonClear
             // 
@@ -317,14 +325,12 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // 
             resources.ApplyResources(this.labelName, "labelName");
             this.labelName.Name = "labelName";
-            this.labelName.Hide();
             // 
             // pictureBoxProfile
             // 
             resources.ApplyResources(this.pictureBoxProfile, "pictureBoxProfile");
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.TabStop = false;
-            this.pictureBoxProfile.Hide();
             // 
             // TabControl
             // 
@@ -355,6 +361,39 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.buttonLogOff.UseVisualStyleBackColor = true;
             this.buttonLogOff.Click += new System.EventHandler(this.buttonLogOff_Click);
             // 
+            // descriptionLabel
+            // 
+            resources.ApplyResources(descriptionLabel, "descriptionLabel");
+            descriptionLabel.Name = "descriptionLabel";
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookPostBindingSource, "Description", true));
+            resources.ApplyResources(this.descriptionTextBox, "descriptionTextBox");
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            // 
+            // iDLabel
+            // 
+            resources.ApplyResources(iDLabel, "iDLabel");
+            iDLabel.Name = "iDLabel";
+            // 
+            // iDLabel1
+            // 
+            this.iDLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookPostBindingSource, "ID", true));
+            resources.ApplyResources(this.iDLabel1, "iDLabel1");
+            this.iDLabel1.Name = "iDLabel1";
+            // 
+            // nameLabel
+            // 
+            resources.ApplyResources(nameLabel, "nameLabel");
+            nameLabel.Name = "nameLabel";
+            // 
+            // nameLabel1
+            // 
+            this.nameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookPostBindingSource, "From.Name", true));
+            resources.ApplyResources(this.nameLabel1, "nameLabel1");
+            this.nameLabel1.Name = "nameLabel1";
+            // 
             // FacebookMainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -376,6 +415,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvents)).EndInit();
             this.FavoritesTab.ResumeLayout(false);
             this.FavoritesTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.facebookPostBindingSource)).EndInit();
             this.FacebookTab.ResumeLayout(false);
             this.FacebookTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserPictures)).EndInit();
@@ -420,9 +460,12 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         private System.Windows.Forms.PictureBox pictureBoxEvents;
         private System.Windows.Forms.ComboBox comboBoxPosts;
         private System.Windows.Forms.ListBox listBoxPosts;
-        private System.Windows.Forms.TextBox textBoxFriendPost;
         private System.Windows.Forms.CheckedListBox checkedListBoxFriends;
         private System.Windows.Forms.Button buttonLoadPosts;
         private System.Windows.Forms.Button buttonLogOff;
+        private System.Windows.Forms.BindingSource facebookPostBindingSource;
+        private System.Windows.Forms.Label nameLabel1;
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.Label iDLabel1;
     }
 }
