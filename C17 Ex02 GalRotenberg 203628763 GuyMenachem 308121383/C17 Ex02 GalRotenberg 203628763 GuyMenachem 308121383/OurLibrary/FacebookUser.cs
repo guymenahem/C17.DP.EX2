@@ -21,22 +21,6 @@ namespace OurLibrary
         private string m_Token;
         private List<FacebookFriend> m_Friends;
 
-        /*
-        /// <summary>
-        /// Ctor from logged in user - API object
-        /// </summary>
-        /// <param name="i_LoggedInUser">User</param>
-        public FacebookUser(User i_LoggedInUser)
-        {
-            m_user = i_LoggedInUser;
-            m_Friends = new List<FacebookFriend>();
-            foreach (User friend in m_user.Friends)
-            {
-                m_Friends.Add(new FacebookFriend(friend));
-            }
-        }
-        */
-
         private FacebookUser(string i_Token)
         {
             LoginResult result;
@@ -107,7 +91,7 @@ namespace OurLibrary
             private set { m_Token = value; }
         }
 
-        public static FacebookUser Instance(string i_Token = null) //not exception safe.
+        public static FacebookUser Instance(string i_Token = null)
         {
             if(s_Instance==null)
             {
@@ -227,9 +211,9 @@ namespace OurLibrary
             return rslt;
         }
 
-        public ICollection<FacebookPost> GetTaggedPosts()
+        public ICollection<FacebookPostAdapter> GetTaggedPosts()
         {
-            ICollection<FacebookPost> rslt = new List<FacebookPost>();
+            ICollection<FacebookPostAdapter> rslt = new List<FacebookPostAdapter>();
 
             foreach (User friend in m_user.Friends)
             {
@@ -239,7 +223,7 @@ namespace OurLibrary
                     {
                         if (tagged.Id == this.m_user.Id)
                         {
-                            rslt.Add(new FacebookPost(post, FindFriend(friend.Id)));
+                            rslt.Add(new FacebookPostAdapter(post, FindFriend(friend.Id)));
                         }
                     }
                 }
@@ -335,9 +319,9 @@ namespace OurLibrary
             return this.m_Friends;
         }
 
-        public ICollection<FacebookPost> GetFriendsPosts(ICollection<FacebookFriend> i_Friends)
+        public ICollection<FacebookPostAdapter> GetFriendsPosts(ICollection<FacebookFriend> i_Friends)
         {
-            Dictionary<string, FacebookPost> posts = new Dictionary<string, FacebookPost>();
+            Dictionary<string, FacebookPostAdapter> posts = new Dictionary<string, FacebookPostAdapter>();
 
             foreach(User curUser in this.m_user.Friends)
             {
@@ -349,7 +333,7 @@ namespace OurLibrary
                         {
                             if(post.Description != null || post.Message != null)
                             {
-                                posts.Add(post.Id, new FacebookPost(post, reqFriend));
+                                posts.Add(post.Id, new FacebookPostAdapter(post, reqFriend));
                             }
                         }
                     }
@@ -366,7 +350,7 @@ namespace OurLibrary
         /// <param name="i_Msg"></param>
         public void LikeAndComment(ObjectCollection i_TaggedPosts, string i_Msg)
         {
-            foreach (FacebookPost post in i_TaggedPosts)
+            foreach (FacebookPostAdapter post in i_TaggedPosts)
             {
                 post.OriginalPost.Like();
                 if (i_Msg != null)
@@ -378,7 +362,7 @@ namespace OurLibrary
 
         public void LikeAndComment(CheckedItemCollection i_TaggedPosts, string i_Msg)
         {
-            foreach (FacebookPost post in i_TaggedPosts)
+            foreach (FacebookPostAdapter post in i_TaggedPosts)
             {
                 post.OriginalPost.Like();
                 if (i_Msg != null)

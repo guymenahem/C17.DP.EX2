@@ -53,7 +53,7 @@
     <Compile Include="FacebookFriend.cs" />
     <Compile Include="FacebookManager.cs" />
     <Compile Include="FacebookPicture.cs" />
-    <Compile Include="FacebookPost.cs" />
+    <Compile Include="FacebookPostAdapter.cs" />
     <Compile Include="FacebookUser.cs" />
     <Compile Include="ICommentable.cs" />
     <Compile Include="IHavePicture.cs" />

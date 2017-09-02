@@ -145,7 +145,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
         private void GetTaggedPosts()
         {
-            foreach (FacebookPost fbP in m_AppManager.FetchTaggedPosts())
+            foreach (FacebookPostAdapter fbP in m_AppManager.FetchTaggedPosts())
             {
                 this.checkedListBoxPosts.Invoke(new Action(() => checkedListBoxPosts.Items.Add(fbP)));
             }
@@ -407,14 +407,14 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         private void buttonLoadPosts_Click(object sender, EventArgs e)
         {
             List<FacebookFriend> friends = new List<FacebookFriend>();
-            List<FacebookPost> posts = new List<FacebookPost>();
+            List<FacebookPostAdapter> posts = new List<FacebookPostAdapter>();
 
             foreach (FacebookFriend fr in this.checkedListBoxFriends.CheckedItems)
             {
                 friends.Add(fr);
             }
 
-            foreach(FacebookPost post in this.m_AppManager.GetPostsFromFriends(friends))
+            foreach(FacebookPostAdapter post in this.m_AppManager.GetPostsFromFriends(friends))
             {
                 //this.listBoxPosts.Items.Add(post);
                 posts.Add(post);

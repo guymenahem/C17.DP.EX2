@@ -80,7 +80,7 @@ namespace FacebookLogicUnit
         /// Fetch of tagged posts
         /// </summary>
         /// <returns>get all posts the users taaged at</returns>
-        public ICollection<FacebookPost> FetchTaggedPosts()
+        public ICollection<FacebookPostAdapter> FetchTaggedPosts()
         {
             return FacebookUser.Instance().GetTaggedPosts();
         }
@@ -137,7 +137,7 @@ namespace FacebookLogicUnit
         /// </summary>
         /// <param name="i_friends">friends to get posts from</param>
         /// <returns></returns>
-        public ICollection<FacebookPost> GetPostsFromFriends(ICollection<FacebookFriend> i_friends)
+        public ICollection<FacebookPostAdapter> GetPostsFromFriends(ICollection<FacebookFriend> i_friends)
         {
             return FacebookUser.Instance().GetFriendsPosts(i_friends);
         }

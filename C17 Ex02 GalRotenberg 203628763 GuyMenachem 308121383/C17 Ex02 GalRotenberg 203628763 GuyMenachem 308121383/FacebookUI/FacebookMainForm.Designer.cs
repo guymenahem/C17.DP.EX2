@@ -247,7 +247,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // 
             // facebookPostBindingSource
             // 
-            this.facebookPostBindingSource.DataSource = typeof(OurLibrary.FacebookPost);
+            this.facebookPostBindingSource.DataSource = typeof(OurLibrary.FacebookPostAdapter);
             // 
             // descriptionTextBox
             // 
