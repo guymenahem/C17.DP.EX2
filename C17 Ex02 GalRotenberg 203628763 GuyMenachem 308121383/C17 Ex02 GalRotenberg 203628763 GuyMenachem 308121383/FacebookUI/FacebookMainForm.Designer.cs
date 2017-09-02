@@ -36,9 +36,8 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label descriptionLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FacebookMainForm));
-            System.Windows.Forms.Label iDLabel;
+            System.Windows.Forms.Label descriptionLabel;
             System.Windows.Forms.Label nameLabel;
             this.buttonLogIn = new System.Windows.Forms.Button();
             this.TodoTab = new System.Windows.Forms.TabPage();
@@ -56,10 +55,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.CommentTextBox = new System.Windows.Forms.TextBox();
             this.pictureBoxEvents = new System.Windows.Forms.PictureBox();
             this.FavoritesTab = new System.Windows.Forms.TabPage();
-            this.nameLabel1 = new System.Windows.Forms.Label();
             this.facebookPostBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.iDLabel1 = new System.Windows.Forms.Label();
             this.buttonLoadPosts = new System.Windows.Forms.Button();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.checkedListBoxFriends = new System.Windows.Forms.CheckedListBox();
@@ -78,8 +74,10 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.pictureBoxCoverPhoto = new System.Windows.Forms.PictureBox();
             this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.buttonLogOff = new System.Windows.Forms.Button();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.nameLabel1 = new System.Windows.Forms.Label();
+            this.imageSmallPictureBox = new System.Windows.Forms.PictureBox();
             descriptionLabel = new System.Windows.Forms.Label();
-            iDLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             this.TodoTab.SuspendLayout();
             this.TabControlTODO.SuspendLayout();
@@ -93,22 +91,8 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).BeginInit();
             this.TabControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // descriptionLabel
-            // 
-            resources.ApplyResources(descriptionLabel, "descriptionLabel");
-            descriptionLabel.Name = "descriptionLabel";
-            // 
-            // iDLabel
-            // 
-            resources.ApplyResources(iDLabel, "iDLabel");
-            iDLabel.Name = "iDLabel";
-            // 
-            // nameLabel
-            // 
-            resources.ApplyResources(nameLabel, "nameLabel");
-            nameLabel.Name = "nameLabel";
             // 
             // buttonLogIn
             // 
@@ -227,39 +211,21 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // FavoritesTab
             // 
             resources.ApplyResources(this.FavoritesTab, "FavoritesTab");
+            this.FavoritesTab.Controls.Add(this.imageSmallPictureBox);
             this.FavoritesTab.Controls.Add(nameLabel);
             this.FavoritesTab.Controls.Add(this.nameLabel1);
             this.FavoritesTab.Controls.Add(descriptionLabel);
             this.FavoritesTab.Controls.Add(this.descriptionTextBox);
-            this.FavoritesTab.Controls.Add(iDLabel);
-            this.FavoritesTab.Controls.Add(this.iDLabel1);
             this.FavoritesTab.Controls.Add(this.buttonLoadPosts);
             this.FavoritesTab.Controls.Add(this.listBoxPosts);
             this.FavoritesTab.Controls.Add(this.checkedListBoxFriends);
             this.FavoritesTab.Name = "FavoritesTab";
             this.FavoritesTab.UseVisualStyleBackColor = true;
             // 
-            // nameLabel1
-            // 
-            this.nameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookPostBindingSource, "From.Name", true));
-            resources.ApplyResources(this.nameLabel1, "nameLabel1");
-            this.nameLabel1.Name = "nameLabel1";
-            // 
             // facebookPostBindingSource
             // 
             this.facebookPostBindingSource.DataSource = typeof(OurLibrary.FacebookPostAdapter);
-            // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookPostBindingSource, "Description", true));
-            resources.ApplyResources(this.descriptionTextBox, "descriptionTextBox");
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            // 
-            // iDLabel1
-            // 
-            this.iDLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookPostBindingSource, "ID", true));
-            resources.ApplyResources(this.iDLabel1, "iDLabel1");
-            this.iDLabel1.Name = "iDLabel1";
+            this.facebookPostBindingSource.CurrentChanged += new System.EventHandler(this.facebookPostBindingSource_CurrentChanged);
             // 
             // buttonLoadPosts
             // 
@@ -388,6 +354,35 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.buttonLogOff.UseVisualStyleBackColor = true;
             this.buttonLogOff.Click += new System.EventHandler(this.buttonLogOff_Click);
             // 
+            // descriptionLabel
+            // 
+            resources.ApplyResources(descriptionLabel, "descriptionLabel");
+            descriptionLabel.Name = "descriptionLabel";
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookPostBindingSource, "Description", true));
+            resources.ApplyResources(this.descriptionTextBox, "descriptionTextBox");
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            // 
+            // nameLabel
+            // 
+            resources.ApplyResources(nameLabel, "nameLabel");
+            nameLabel.Name = "nameLabel";
+            // 
+            // nameLabel1
+            // 
+            this.nameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.facebookPostBindingSource, "From.Name", true));
+            resources.ApplyResources(this.nameLabel1, "nameLabel1");
+            this.nameLabel1.Name = "nameLabel1";
+            // 
+            // imageSmallPictureBox
+            // 
+            this.imageSmallPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.facebookPostBindingSource, "OriginalPost.From.ImageSmall", true));
+            resources.ApplyResources(this.imageSmallPictureBox, "imageSmallPictureBox");
+            this.imageSmallPictureBox.Name = "imageSmallPictureBox";
+            this.imageSmallPictureBox.TabStop = false;
+            // 
             // FacebookMainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -415,6 +410,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfile)).EndInit();
             this.TabControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageSmallPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,6 +454,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         private System.Windows.Forms.BindingSource facebookPostBindingSource;
         private System.Windows.Forms.Label nameLabel1;
         private System.Windows.Forms.TextBox descriptionTextBox;
-        private System.Windows.Forms.Label iDLabel1;
+        private System.Windows.Forms.PictureBox imageSmallPictureBox;
     }
 }

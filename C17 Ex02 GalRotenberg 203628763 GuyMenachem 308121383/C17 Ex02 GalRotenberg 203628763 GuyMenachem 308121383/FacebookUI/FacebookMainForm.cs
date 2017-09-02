@@ -454,5 +454,10 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.checkedListBoxPosts.Items.Clear();
             this.checkedListBoxFriends.Items.Clear();
         }
+
+        private void facebookPostBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

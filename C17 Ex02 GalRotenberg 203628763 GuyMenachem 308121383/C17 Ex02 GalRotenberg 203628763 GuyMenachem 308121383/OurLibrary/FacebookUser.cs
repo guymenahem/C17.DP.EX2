@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mime;
@@ -321,7 +322,7 @@ namespace OurLibrary
 
         public ICollection<FacebookPostAdapter> GetFriendsPosts(ICollection<FacebookFriend> i_Friends)
         {
-            Dictionary<string, FacebookPostAdapter> posts = new Dictionary<string, FacebookPostAdapter>();
+            List<FacebookPostAdapter> posts = new List<FacebookPostAdapter>();
 
             foreach(User curUser in this.m_user.Friends)
             {
@@ -333,14 +334,16 @@ namespace OurLibrary
                         {
                             if(post.Description != null || post.Message != null)
                             {
-                                posts.Add(post.Id, new FacebookPostAdapter(post, reqFriend));
+                                posts.Add(new FacebookPostAdapter(post, reqFriend));
                             }
                         }
                     }
                 }
             }
 
-            return posts.Values;
+            posts.Sort();
+
+            return posts;
         }
 
         /// <summary>

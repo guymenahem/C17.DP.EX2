@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 
 namespace OurLibrary
 {
-    public class FacebookPostAdapter : ILikeAble,ICommentable
+    public class FacebookPostAdapter : ILikeAble,ICommentable,IComparable
     {
         public string ID
         {
@@ -38,6 +39,25 @@ namespace OurLibrary
         public override string ToString()
         {
             return this.Description;
+        }
+
+        public int CompareTo(object obj)
+        {
+            FacebookPostAdapter fpa = obj as FacebookPostAdapter;
+
+            if(fpa == null)
+            {
+                return -1;
+            }
+
+            if(this.OriginalPost.UpdateTime > fpa.OriginalPost.UpdateTime)
+            {
+                return -1;
+            }
+            else
+            {
+                return 1;
+            }
         }
 
         public void Comment(string i_Comment)
