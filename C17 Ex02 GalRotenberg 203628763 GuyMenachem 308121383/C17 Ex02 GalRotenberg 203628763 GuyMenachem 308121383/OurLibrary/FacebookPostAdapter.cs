@@ -28,7 +28,7 @@ namespace OurLibrary
 
         public FacebookFriend From { get; private set; }
         
-        public Post OriginalPost { get; private set; }
+        public Post OriginalPost {  get; private set; }
 
         public FacebookPostAdapter(Post i_Post, FacebookFriend i_Friend)
         {
@@ -62,12 +62,19 @@ namespace OurLibrary
 
         public void Comment(string i_Comment)
         {
-            throw new NotImplementedException();
+            if(i_Comment!=null)
+            {
+                this.OriginalPost.Comment(i_Comment);
+            }
+            else
+            {
+                throw new ArgumentException("cant send empty message as comment.");
+            }
         }
 
         public void Like()
         {
-            throw new NotImplementedException();
+            this.OriginalPost.Like();
         }
     }
 }

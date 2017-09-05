@@ -129,7 +129,10 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         {
             foreach (FacebookAlbum album in m_AppManager.FetchAlbums())
             {
-                this.listBoxAlbums.Invoke(new Action(() => listBoxAlbums.Items.Add(album)));
+                if(album.HasPhotos)
+                {
+                    this.listBoxAlbums.Invoke(new Action(() => listBoxAlbums.Items.Add(album)));
+                }
             }
             this.buttonNextPhoto.Invoke(new Action(() => buttonNextPhoto.Enabled = true));
             this.buttonPrevPhoto.Invoke(new Action(() => buttonPrevPhoto.Enabled = true));
@@ -440,6 +443,11 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         }
 
         private void buttonLogOff_Click(object sender, EventArgs e)
+        {
+            this.LogoffProcess();
+        }
+
+        private void LogoffProcess()
         {
             this.buttonLogIn.Show();
             this.pictureBoxCoverPhoto.Image = null;

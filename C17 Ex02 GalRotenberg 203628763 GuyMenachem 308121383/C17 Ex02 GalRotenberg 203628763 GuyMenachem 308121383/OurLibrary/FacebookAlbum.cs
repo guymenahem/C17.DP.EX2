@@ -18,6 +18,8 @@ namespace OurLibrary
 
         private List<FacebookPicture> m_Photos;
 
+        private bool m_HasPhotos;
+
         private int m_CurPhoto;
         
         public FacebookAlbum(Album i_Album)
@@ -27,10 +29,13 @@ namespace OurLibrary
             this.Name = i_Album.Name;
             m_Photos = new List<FacebookPicture>();
 
+            int checkPhotos = 0;
             foreach(Photo p in i_Album.Photos)
             {
+                checkPhotos++;
                 m_Photos.Add(new FacebookPicture(p.Id, p.PictureAlbumURL));
             }
+            m_HasPhotos = checkPhotos > 0;
         }
 
         /// <summary>
@@ -42,6 +47,11 @@ namespace OurLibrary
             {
                 return this.m_Photos[m_CurPhoto];
             }
+        }
+
+        public bool HasPhotos
+        {
+            get { return m_HasPhotos; }
         }
 
         public FacebookPicture NextPhoto
