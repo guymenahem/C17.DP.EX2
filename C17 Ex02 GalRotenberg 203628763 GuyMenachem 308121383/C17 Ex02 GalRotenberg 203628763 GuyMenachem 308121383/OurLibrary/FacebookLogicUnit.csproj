@@ -49,12 +49,13 @@
   <ItemGroup>
     <Compile Include="FacebookAlbum.cs" />
     <Compile Include="FacebookBirthday.cs" />
-    <Compile Include="FacebookEvent.cs" />
+    <Compile Include="FacebookEventAdapter.cs" />
     <Compile Include="FacebookFriend.cs" />
     <Compile Include="FacebookManager.cs" />
     <Compile Include="FacebookPicture.cs" />
     <Compile Include="FacebookPostAdapter.cs" />
     <Compile Include="FacebookUser.cs" />
+    <Compile Include="IAttendable.cs" />
     <Compile Include="ICommentable.cs" />
     <Compile Include="IHavePicture.cs" />
     <Compile Include="ILikeAble.cs" />

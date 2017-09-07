@@ -270,13 +270,13 @@
     <value>1</value>
   </data>
   <data name="comboBoxEvents.Items" xml:space="preserve">
-    <value>Attendeing</value>
+    <value>Attending</value>
   </data>
   <data name="comboBoxEvents.Items1" xml:space="preserve">
     <value>Maybe</value>
   </data>
   <data name="comboBoxEvents.Items2" xml:space="preserve">
-    <value>Not Attendeing</value>
+    <value>Not Attending</value>
   </data>
   <data name="comboBoxEvents.Location" type="System.Drawing.Point, System.Drawing">
     <value>636, 20</value>

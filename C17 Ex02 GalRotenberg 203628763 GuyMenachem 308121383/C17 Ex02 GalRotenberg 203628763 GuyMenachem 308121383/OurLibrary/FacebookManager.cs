@@ -98,7 +98,7 @@ namespace FacebookLogicUnit
         /// Fetch user events
         /// </summary>
         /// <returns>Collection of the user events</returns>
-        public ICollection<FacebookEvent> FetchEvents()
+        public ICollection<FacebookEventAdapter> FetchEvents()
         {
             return FacebookUser.Instance().FetchEvents();
         }
@@ -111,16 +111,6 @@ namespace FacebookLogicUnit
         public bool PostMessage(string i_Message)
         {
             return FacebookUser.Instance().Post(i_Message);
-        }
-
-        /// <summary>
-        /// Make a user attend to events
-        /// </summary>
-        /// <param name="i_Events">Events</param>
-        /// <param name="i_AttendStatus">Status of attendetion</param>
-        public void AttendTo(List<FacebookEvent> i_Events, string i_AttendStatus)
-        {
-            FacebookUser.Instance().AttendTo(i_Events, i_AttendStatus);
         }
 
         /// <summary>

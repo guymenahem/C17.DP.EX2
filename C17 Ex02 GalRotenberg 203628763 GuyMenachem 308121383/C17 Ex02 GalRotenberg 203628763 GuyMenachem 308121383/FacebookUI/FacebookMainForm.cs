@@ -58,22 +58,33 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
             // Get Posts
             this.addStringsToListView(this.listViewPrevPosts, m_AppManager.FetchPosts());
-            
+
+            this.ThreadOperations();
+        }
+
+        private void ThreadOperations()
+        {
+            Thread Current_Thread;
 
             // Get Albums
-            new Thread(GetAlbums).Start();
-
+            Current_Thread = new Thread(GetAlbums);
+            Current_Thread.IsBackground = true;
+            Current_Thread.Start();
 
             // Add events
-            new Thread(GetEvents).Start();
-
+            Current_Thread = new Thread(GetEvents);
+            Current_Thread.IsBackground = true;
+            Current_Thread.Start();
 
             // Add tagged posts
-            new Thread(GetTaggedPosts).Start();
-            
-            
+            Current_Thread = new Thread(GetTaggedPosts);
+            Current_Thread.IsBackground = true;
+            Current_Thread.Start();
+
             // Load all favorits page
-            new Thread(this.loadFavoritsPage).Start();
+            Current_Thread = new Thread(this.loadFavoritsPage);
+            Current_Thread.IsBackground = true;
+            Current_Thread.Start();
         }
 
         private void InitializeComponentsForLogIN()
@@ -86,16 +97,15 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.listViewPrevPosts.View = View.Details;
             this.TabControl.Enabled = true;
 
-            ColorChangeLabel cl = new ColorChangeLabel();
-            cl.Top = 92;
-            cl.Left = 26;
-            cl.Text = m_AppManager.UserName;
-            cl.Font = new Font(FontFamily.GenericSansSerif, 14.0F, FontStyle.Bold);
-            cl.AutoSize = true;
-            cl.AdjustColors(this.pictureBoxCoverPhoto);
+            ColoredNameLabel.Top = 92;
+            ColoredNameLabel.Left = 26;
+            ColoredNameLabel.Text = m_AppManager.UserName;
+            ColoredNameLabel.Font = new Font(FontFamily.GenericSansSerif, 14.0F, FontStyle.Bold);
+            ColoredNameLabel.AutoSize = true;
+            ColoredNameLabel.AdjustColors(this.pictureBoxCoverPhoto);
 
-            this.Controls.Add(cl);
-            cl.BringToFront();
+            
+            ColoredNameLabel.BringToFront();
             
         }
 
@@ -140,7 +150,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
         private void GetEvents()
         {
-            foreach (FacebookEvent fbE in m_AppManager.FetchEvents())
+            foreach (FacebookEventAdapter fbE in m_AppManager.FetchEvents())
             {
                 this.checkedListBoxEvents.Invoke(new Action(() => checkedListBoxEvents.Items.Add(fbE)));
             }
@@ -262,14 +272,14 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// <param name="e"></param>
         private void checkedListBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FacebookEvent evnt;
+            FacebookEventAdapter evnt;
             if(this.checkedListBoxEvents.SelectedIndex < 0)
             {
                 this.checkedListBoxEvents.SelectedIndex = 0;
             }
 
-            evnt = checkedListBoxEvents.Items[checkedListBoxEvents.SelectedIndex] as FacebookEvent;
-            pictureBoxEvents.ImageLocation = evnt.Image.GetPicture();
+            evnt = checkedListBoxEvents.Items[checkedListBoxEvents.SelectedIndex] as FacebookEventAdapter;
+            pictureBoxEvents.ImageLocation = evnt.GetPicture();
         }
 
         /// <summary>
@@ -283,8 +293,8 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             {
                 if (checkedListBoxEvents.Items.Count != 0)
                 {
-                    List<FacebookEvent> lst = new List<FacebookEvent>();
-                    foreach (FacebookEvent _event in this.checkedListBoxEvents.CheckedItems)
+                    List<FacebookEventAdapter> lst = new List<FacebookEventAdapter>();
+                    foreach (FacebookEventAdapter _event in this.checkedListBoxEvents.CheckedItems)
                     {
                         lst.Add(_event);
                     }
@@ -293,28 +303,24 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
                     {
                         if(this.comboBoxEvents.SelectedIndex>-1)
                         {
-                            if (this.comboBoxEvents.Items[this.comboBoxEvents.SelectedIndex].ToString() == "Attending")
+                            foreach(FacebookEventAdapter SelectedEvent in lst)
                             {
-                                this.m_AppManager.AttendTo(lst, "Attending");
-                            }
-                            else if (this.comboBoxEvents.Items[this.comboBoxEvents.SelectedIndex].ToString() == "Maybe")
-                            {
-                                this.m_AppManager.AttendTo(lst, "Maybe");
-                            }
-                            else
-                            {
-                                this.m_AppManager.AttendTo(lst, "Not Attending");
-                            }
-
-                            foreach (FacebookEvent _event in lst)
-                            {
-                                this.checkedListBoxEvents.Items.Remove(_event);
+                                try
+                                {
+                                    SelectedEvent.Attend(this.comboBoxEvents.SelectedItem.ToString());
+                                    this.checkedListBoxEvents.Items.Remove(SelectedEvent);
+                                }
+                                catch(Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message + Environment.NewLine + "Finishing operation for selected option.");
+                                }
                             }
                         }
                         else
                         {
                             MessageBox.Show("No option has been chosen");
                         }
+                       
                        
                     }
                     else

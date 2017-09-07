@@ -149,39 +149,6 @@ namespace OurLibrary
         }
 
         /// <summary>
-        /// Attend to events
-        /// </summary>
-        /// <param name="i_Events">events to attend</param>
-        /// <param name="i_AttendStatus">action</param>
-        internal void AttendTo(List<FacebookEvent> i_Events, string i_AttendStatus)
-        {
-            foreach (FacebookEvent even in i_Events)
-            {
-                // TODO: create cache for events/users/etc.. for faster operations on logic side...
-                foreach (Event realEvent in m_user.Events)
-                {
-                    if (realEvent.Id == even.ID)
-                    {
-                        if (i_AttendStatus == "Attending")
-                        {
-                            realEvent.Respond(Event.eRsvpType.Attending);
-                        }
-                        else if (i_AttendStatus == "Maybe")
-                        {
-                                realEvent.Respond(Event.eRsvpType.Maybe);
-                        }
-                        else
-                        {
-                            realEvent.Respond(Event.eRsvpType.Declined);
-                        }
-
-                        break;
-                    }
-                }
-            }
-        }
-
-        /// <summary>
         /// Get all user albums
         /// </summary>
         /// <returns>Albums</returns>
@@ -197,20 +164,7 @@ namespace OurLibrary
             return rslt;
         }
 
-        /// <summary>
-        /// Get user events
-        /// </summary>
-        /// <returns>Events</returns>
-        public ICollection<FacebookEvent> GetEvents()
-        {
-            ICollection<FacebookEvent> rslt = new List<FacebookEvent>();
-            foreach (Event e in m_user.Events)
-            {
-               rslt.Add(new FacebookEvent(e));
-            }
 
-            return rslt;
-        }
 
         public ICollection<FacebookPostAdapter> GetTaggedPosts()
         {
@@ -249,13 +203,13 @@ namespace OurLibrary
             return false;
         }
 
-        public ICollection<FacebookEvent> FetchEvents()
+        public ICollection<FacebookEventAdapter> FetchEvents()
         {
-            ICollection<FacebookEvent> rslt = new List<FacebookEvent>();
+            ICollection<FacebookEventAdapter> rslt = new List<FacebookEventAdapter>();
 
             foreach (Event evnt in m_user.Events)
             {
-                rslt.Add(new FacebookEvent(evnt));
+                rslt.Add(new FacebookEventAdapter(evnt));
             }
 
             return rslt;
