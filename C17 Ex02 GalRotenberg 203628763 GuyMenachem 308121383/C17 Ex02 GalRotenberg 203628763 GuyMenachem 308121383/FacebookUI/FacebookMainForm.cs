@@ -66,23 +66,19 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             Thread Current_Thread;
 
             // Get Albums
-            Current_Thread = new Thread(GetAlbums);
-            Current_Thread.IsBackground = true;
+            Current_Thread = new Thread(GetAlbums){IsBackground = true};
             Current_Thread.Start();
 
             // Add events
-            Current_Thread = new Thread(GetEvents);
-            Current_Thread.IsBackground = true;
+            Current_Thread = new Thread(GetEvents){ IsBackground = true };
             Current_Thread.Start();
 
             // Add tagged posts
-            Current_Thread = new Thread(GetTaggedPosts);
-            Current_Thread.IsBackground = true;
+            Current_Thread = new Thread(GetTaggedPosts){ IsBackground = true };
             Current_Thread.Start();
 
             // Load all favorits page
-            Current_Thread = new Thread(this.loadFavoritsPage);
-            Current_Thread.IsBackground = true;
+            Current_Thread = new Thread(this.loadFavoritsPage){ IsBackground = true };
             Current_Thread.Start();
         }
 

@@ -227,7 +227,7 @@ namespace OurLibrary
             return rslt;
         }
 
-        private string buildStringFromPost(Post i_Post)
+        private string BuildStringFromPost(Post i_Post)
         {
             string ret = string.Empty;
 
@@ -255,7 +255,7 @@ namespace OurLibrary
             foreach (Post p in m_user.Posts)
             {
                 // get string from post
-                string curPost = this.buildStringFromPost(p);
+                string curPost = this.BuildStringFromPost(p);
 
                 if (curPost != string.Empty)
                 {
