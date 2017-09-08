@@ -71,7 +71,7 @@ namespace FacebookLogicUnit
         /// Fetch all posts of connected user
         /// </summary>
         /// <returns>COllection of posts</returns>
-        public ICollection<string> FetchPosts()
+        public ICollection<FacebookPostAdapter> FetchPosts()
         {
             return FacebookUser.Instance().FetchPosts();
         }

@@ -7,9 +7,9 @@ using FacebookWrapper.ObjectModel;
 
 namespace OurLibrary
 {
-    public static class AdapterFactory
+    public static class AdaptersFactory
     {
-        public static IFacebookAdapter CreateAdapterFromFacebook(object i_FacebookObj)
+        public static IFacebookAdapter CreateAdapterFromFacebookObj(object i_FacebookObj)
         {
             if(i_FacebookObj is Post)
             {

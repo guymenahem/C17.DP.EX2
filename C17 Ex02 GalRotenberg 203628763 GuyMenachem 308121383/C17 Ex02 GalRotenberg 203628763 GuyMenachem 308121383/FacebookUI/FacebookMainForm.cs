@@ -98,11 +98,11 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// </summary>
         /// <param name="i_ListView">The list view to add</param>
         /// <param name="i_Strings">String that shloud be added</param>
-        private void addStringsToListView(ListView i_ListView, ICollection<string> i_Strings)
+        private void addStringsToListView(ListView i_ListView, ICollection<FacebookPostAdapter> i_Posts)
         {
-            foreach (string str in i_Strings)
+            foreach (FacebookPostAdapter post in i_Posts)
             {
-                i_ListView.Items.Add(str);
+                i_ListView.Items.Add(post.ReadAbleString);
             }
         }
 

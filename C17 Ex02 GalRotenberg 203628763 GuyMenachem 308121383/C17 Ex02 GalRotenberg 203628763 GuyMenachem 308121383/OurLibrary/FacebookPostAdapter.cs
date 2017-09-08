@@ -31,14 +31,29 @@ namespace OurLibrary
             get { return this.OriginalPost.Name; }
         }
 
+        private string m_ReadAbleString;
+        public string ReadAbleString
+        {
+            get
+            {
+                return m_ReadAbleString;
+            }
+
+            private set
+            {
+                this.m_ReadAbleString = value;
+            }
+        }
+
         public FacebookFriendAdapter From { get; private set; }
         
-        public Post OriginalPost { get; private set; }
+        public Post OriginalPost { get; set; }
 
         public FacebookPostAdapter(Post i_Post)
         {
             OriginalPost = i_Post;
             From = new FacebookFriendAdapter(i_Post.From);
+            this.ReadAbleString = this.BuildStringFromPost(this.OriginalPost);
         }
 
         public override string ToString()
@@ -80,6 +95,25 @@ namespace OurLibrary
         public void Like()
         {
             this.OriginalPost.Like();
+        }
+
+        private string BuildStringFromPost(Post i_Post)
+        {
+            string ret = string.Empty;
+
+            // Add decription
+            if (i_Post.Description != null)
+            {
+                ret += i_Post.Description;
+            }
+
+            // Add message
+            if (i_Post.Message != null)
+            {
+                ret += i_Post.Message;
+            }
+
+            return ret;
         }
     }
 }

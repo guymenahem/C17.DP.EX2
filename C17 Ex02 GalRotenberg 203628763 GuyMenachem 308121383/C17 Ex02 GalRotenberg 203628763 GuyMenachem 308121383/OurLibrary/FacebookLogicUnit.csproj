@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdapterFactory.cs" />
+    <Compile Include="AdaptersFactory.cs" />
     <Compile Include="FacebookAlbum.cs" />
     <Compile Include="FacebookEventAdapter.cs" />
     <Compile Include="FacebookFriendAdapter.cs" />

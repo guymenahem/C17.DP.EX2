@@ -76,7 +76,7 @@ namespace OurLibrary
                 m_Friends = new List<FacebookFriendAdapter>();
                 foreach (User friend in m_user.Friends)
                 {
-                    m_Friends.Add(AdapterFactory.CreateAdapterFromFacebook(friend) as FacebookFriendAdapter);
+                    m_Friends.Add(AdaptersFactory.CreateAdapterFromFacebookObj(friend) as FacebookFriendAdapter);
                 }
             }
             else
@@ -175,7 +175,7 @@ namespace OurLibrary
                     {
                         if (tagged.Id == this.m_user.Id)
                         {
-                            rslt.Add(AdapterFactory.CreateAdapterFromFacebook(post) as FacebookPostAdapter);
+                            rslt.Add(AdaptersFactory.CreateAdapterFromFacebookObj(post) as FacebookPostAdapter);
                         }
                     }
                 }
@@ -206,7 +206,7 @@ namespace OurLibrary
 
             foreach (Event evnt in m_user.Events)
             {
-                rslt.Add(AdapterFactory.CreateAdapterFromFacebook(evnt) as FacebookEventAdapter);
+                rslt.Add(AdaptersFactory.CreateAdapterFromFacebookObj(evnt) as FacebookEventAdapter);
             }
 
             return rslt;
@@ -227,37 +227,20 @@ namespace OurLibrary
             return rslt;
         }
 
-        private string BuildStringFromPost(Post i_Post)
-        {
-            string ret = string.Empty;
 
-            // Add decription
-            if (i_Post.Description != null)
-            {
-                ret += i_Post.Description;
-            }
-
-            // Add message
-            if (i_Post.Message != null)
-            {
-                ret += i_Post.Message;
-            }
-
-            return ret;
-        }
-
-        public ICollection<string> FetchPosts()
+        // TODO : fix posts
+        public ICollection<FacebookPostAdapter> FetchPosts()
         {
             // Create for output
-            ICollection<string> rslt = new List<string>();
+            ICollection<FacebookPostAdapter> rslt = new List<FacebookPostAdapter>();
 
             // For each post
             foreach (Post p in m_user.Posts)
             {
                 // get string from post
-                string curPost = this.BuildStringFromPost(p);
+                FacebookPostAdapter curPost = AdaptersFactory.CreateAdapterFromFacebookObj(p) as FacebookPostAdapter;
 
-                if (curPost != string.Empty)
+                if (curPost.ReadAbleString != string.Empty)
                 {
                     rslt.Add(curPost);
                 }
@@ -285,7 +268,7 @@ namespace OurLibrary
                         {
                             if(post.Description != null || post.Message != null)
                             {
-                                posts.Add(AdapterFactory.CreateAdapterFromFacebook(post) as FacebookPostAdapter);
+                                posts.Add(AdaptersFactory.CreateAdapterFromFacebookObj(post) as FacebookPostAdapter);
                             }
                         }
                     }
@@ -306,10 +289,10 @@ namespace OurLibrary
         {
             foreach (FacebookPostAdapter post in i_TaggedPosts)
             {
-                post.OriginalPost.Like();
+                post.Like();
                 if (i_Msg != null)
                 {
-                    post.OriginalPost.Comment(i_Msg);
+                    post.Comment(i_Msg);
                 }
             }
         }
@@ -318,10 +301,10 @@ namespace OurLibrary
         {
             foreach (FacebookPostAdapter post in i_TaggedPosts)
             {
-                post.OriginalPost.Like();
+                post.Like();
                 if (i_Msg != null)
                 {
-                    post.OriginalPost.Comment(i_Msg);
+                    post.Comment(i_Msg);
                 }
             }
         }
