@@ -7,29 +7,29 @@ using FacebookWrapper.ObjectModel;
 
 namespace OurLibrary
 {
-    public class FacebookEventAdapter : Adapter, IHavePicture, IAttendable
+    public class FacebookEventAdapter : IFacebookAdapter, IHavePicture, IAttendable
     {
         private Event m_Event;
+
         public DateTime? Date
         {
             get { return m_Event.StartTime; }
         }
 
-        public override string ID
+        public string ID
         {
             get { return m_Event.Id; }
         }
 
-        public override string Name
+        public string Name
         {
             get { return m_Event.Name; }
         }
 
-        public override string Description
+        public string Description
         {
             get { return m_Event.Description; }
         }
-
 
         public FacebookEventAdapter(Event i_Event)
         {
@@ -48,15 +48,15 @@ namespace OurLibrary
 
         public void Attend(string i_Option)
         {
-            if(i_Option=="Attending")
+            if(i_Option == "Attending")
             {
                 m_Event.Respond(Event.eRsvpType.Attending);
             }
-            else if(i_Option=="Maybe")
+            else if(i_Option == "Maybe")
             {
                 m_Event.Respond(Event.eRsvpType.Maybe);
             }
-            else if(i_Option=="Not Attending")
+            else if(i_Option == "Not Attending")
             {
                 m_Event.Respond(Event.eRsvpType.Declined);
             }

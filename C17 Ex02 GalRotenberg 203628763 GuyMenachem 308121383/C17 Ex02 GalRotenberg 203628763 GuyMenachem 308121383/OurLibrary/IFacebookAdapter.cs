@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace OurLibrary
 {
-    public interface IAttendable
+    public interface IFacebookAdapter
     {
-        void Attend(string i_Option);
+        string Name { get; }
+
+        string ID { get; }
+
+        string Description { get; }
     }
 }

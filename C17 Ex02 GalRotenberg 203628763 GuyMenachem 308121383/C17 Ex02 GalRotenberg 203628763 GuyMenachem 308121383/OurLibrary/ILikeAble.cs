@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OurLibrary
 {
-    interface ILikeAble
+    public interface ILikeAble
     {
         void Like();
     }

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace OurLibrary
 {
-    public class FacebookPicture : IHavePicture,ILikeAble,ICommentable
+    public class FacebookPicture : IHavePicture, ILikeAble, ICommentable
     {
         public string ID { get; private set; }
+
         public string URL { get; private set; }
 
         public FacebookPicture(string i_URL)

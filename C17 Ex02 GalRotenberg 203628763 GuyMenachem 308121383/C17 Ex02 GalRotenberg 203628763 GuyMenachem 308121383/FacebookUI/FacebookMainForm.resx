@@ -249,13 +249,13 @@
     <value>633, 0</value>
   </data>
   <data name="labelTODO.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 13</value>
+    <value>176, 13</value>
   </data>
   <data name="labelTODO.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
   </data>
   <data name="labelTODO.Text" xml:space="preserve">
-    <value>label2</value>
+    <value>Choose Option For Selected Events</value>
   </data>
   <data name="&gt;&gt;labelTODO.Name" xml:space="preserve">
     <value>labelTODO</value>
@@ -454,7 +454,7 @@
     <value>2</value>
   </data>
   <data name="PostsTab.Text" xml:space="preserve">
-    <value>Posts</value>
+    <value>Tagged Posts</value>
   </data>
   <data name="&gt;&gt;PostsTab.Name" xml:space="preserve">
     <value>PostsTab</value>

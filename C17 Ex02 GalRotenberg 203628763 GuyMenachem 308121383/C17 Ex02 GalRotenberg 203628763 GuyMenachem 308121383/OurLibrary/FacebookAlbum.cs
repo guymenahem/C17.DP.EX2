@@ -35,6 +35,7 @@ namespace OurLibrary
                 checkPhotos++;
                 m_Photos.Add(new FacebookPicture(p.Id, p.PictureAlbumURL));
             }
+
             m_HasPhotos = checkPhotos > 0;
         }
 

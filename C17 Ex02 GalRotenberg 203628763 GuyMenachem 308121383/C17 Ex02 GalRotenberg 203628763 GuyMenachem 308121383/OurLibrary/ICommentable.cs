@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OurLibrary
 {
-    interface ICommentable
+    public interface ICommentable
     {
         void Comment(string i_Comment);
     }

@@ -5,12 +5,12 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookLogicUnit;
 using OurLibrary;
 using FacebookWrapper;
-using System.Threading;
 
 namespace C17_Ex01_Gal_203628763_Guy_308121383
 {
@@ -29,7 +29,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             {
                 /// creating first apperance to FacebookUser.
                 m_AppManager.Connect(m_AppSettings.UserAccessToken);
-                //m_AppManager.Connect(m_AppSettings.UserAccessToken);
                 this.LoginProccess();
                 this.Size = m_AppSettings.WindowSize;
                 this.Location = m_AppSettings.WindowsStart;
@@ -96,17 +95,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.pictureBoxProfile.Show();
             this.listViewPrevPosts.View = View.Details;
             this.TabControl.Enabled = true;
-
-            ColoredNameLabel.Top = 92;
-            ColoredNameLabel.Left = 26;
-            ColoredNameLabel.Text = m_AppManager.UserName;
-            ColoredNameLabel.Font = new Font(FontFamily.GenericSansSerif, 14.0F, FontStyle.Bold);
-            ColoredNameLabel.AutoSize = true;
-            ColoredNameLabel.AdjustColors(this.pictureBoxCoverPhoto);
-
-            
-            ColoredNameLabel.BringToFront();
-            
         }
 
         /// <summary>
@@ -144,6 +132,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
                     this.listBoxAlbums.Invoke(new Action(() => listBoxAlbums.Items.Add(album)));
                 }
             }
+
             this.buttonNextPhoto.Invoke(new Action(() => buttonNextPhoto.Enabled = true));
             this.buttonPrevPhoto.Invoke(new Action(() => buttonPrevPhoto.Enabled = true));
         }
@@ -211,7 +200,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// <param name="e"></param>
         private void buttonPrevPhoto_Click(object sender, EventArgs e)
         {
-            if(this.listBoxAlbums.SelectedIndex>-1)
+            if(this.listBoxAlbums.SelectedIndex > -1)
             {
                 FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
                 this.pictureBoxUserPictures.LoadAsync(album.PrevPhoto.GetPicture());
@@ -301,7 +290,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
                     if (lst.Count != 0)
                     {
-                        if(this.comboBoxEvents.SelectedIndex>-1)
+                        if(this.comboBoxEvents.SelectedIndex > -1)
                         {
                             foreach(FacebookEventAdapter SelectedEvent in lst)
                             {
@@ -320,8 +309,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
                         {
                             MessageBox.Show("No option has been chosen");
                         }
-                       
-                       
                     }
                     else
                     {
@@ -333,15 +320,13 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
                     MessageBox.Show("There are no avialble items");
                 }
             }
-
-            // Post
             else
             {
                 if (checkedListBoxPosts.Items.Count != 0)
                 {
-                    if(comboBoxPosts.SelectedIndex>-1)
+                    if(comboBoxPosts.SelectedIndex > -1)
                     {
-                        List<FacebookFriend> TaggedReplies = new List<FacebookFriend>();
+                        List<FacebookFriendAdapter> TaggedReplies = new List<FacebookFriendAdapter>();
                         if (comboBoxPosts.Items[comboBoxPosts.SelectedIndex].ToString() == "Like To All")
                         {
                             m_AppManager.LikeAndComment(checkedListBoxPosts.Items, null);
@@ -402,9 +387,9 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         private void loadFavoritsPage()
         {
             // Load all the friends
-            foreach(FacebookFriend friend in this.m_AppManager.FetchFriends())
+            foreach(FacebookFriendAdapter friend in this.m_AppManager.FetchFriends())
             {
-                this.checkedListBoxFriends.Invoke(new Action(() =>this.checkedListBoxFriends.Items.Add(friend)));
+                this.checkedListBoxFriends.Invoke(new Action(() => this.checkedListBoxFriends.Items.Add(friend)));
             }
         }
 
@@ -415,24 +400,22 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// <param name="e"></param>
         private void buttonLoadPosts_Click(object sender, EventArgs e)
         {
-            List<FacebookFriend> friends = new List<FacebookFriend>();
+            List<FacebookFriendAdapter> friends = new List<FacebookFriendAdapter>();
             List<FacebookPostAdapter> posts = new List<FacebookPostAdapter>();
 
-            foreach (FacebookFriend fr in this.checkedListBoxFriends.CheckedItems)
+            foreach (FacebookFriendAdapter fr in this.checkedListBoxFriends.CheckedItems)
             {
                 friends.Add(fr);
             }
 
             foreach(FacebookPostAdapter post in this.m_AppManager.GetPostsFromFriends(friends))
             {
-                //this.listBoxPosts.Items.Add(post);
                 posts.Add(post);
             }
 
             facebookPostBindingSource.DataSource = posts;
             this.listBoxPosts.DisplayMember = "Description";
         }
-
 
         /// <summary>
         /// Of form closine of main form
@@ -467,11 +450,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.checkedListBoxEvents.Items.Clear();
             this.checkedListBoxPosts.Items.Clear();
             this.checkedListBoxFriends.Items.Clear();
-        }
-
-        private void facebookPostBindingSource_CurrentChanged(object sender, EventArgs e)
-        {
-
+            facebookPostBindingSource.Clear();
         }
     }
 }

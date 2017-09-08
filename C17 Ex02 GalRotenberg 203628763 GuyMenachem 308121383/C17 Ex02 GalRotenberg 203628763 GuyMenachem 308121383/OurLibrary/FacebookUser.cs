@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
-using static System.Windows.Forms.CheckedListBox;
 using FacebookWrapper;
+using static System.Windows.Forms.CheckedListBox;
 
 namespace OurLibrary
 {
@@ -20,12 +20,12 @@ namespace OurLibrary
         private static object m_Lock = new object();
         private FacebookWrapper.ObjectModel.User m_user;
         private string m_Token;
-        private List<FacebookFriend> m_Friends;
+        private List<FacebookFriendAdapter> m_Friends;
 
         private FacebookUser(string i_Token)
         {
             LoginResult result;
-            if (i_Token==null)
+            if (i_Token == null)
             {
                 // Repilicated code for check
                 /// (desig patter's "Design Patterns Course App 2.4" app)
@@ -73,17 +73,16 @@ namespace OurLibrary
             {
                 m_user = result.LoggedInUser;
                 m_Token = result.AccessToken;
-                m_Friends = new List<FacebookFriend>();
+                m_Friends = new List<FacebookFriendAdapter>();
                 foreach (User friend in m_user.Friends)
                 {
-                    m_Friends.Add(new FacebookFriend(friend));
+                    m_Friends.Add(AdapterFactory.CreateAdapterFromFacebook(friend) as FacebookFriendAdapter);
                 }
             }
             else
             {
                 throw new TaskCanceledException("Could not Connect to facebook for some reason. Please try agin...");
             }
-
         }
 
         public string Token
@@ -94,7 +93,7 @@ namespace OurLibrary
 
         public static FacebookUser Instance(string i_Token = null)
         {
-            if(s_Instance==null)
+            if(s_Instance == null)
             {
                 lock(m_Lock)
                 {
@@ -164,8 +163,6 @@ namespace OurLibrary
             return rslt;
         }
 
-
-
         public ICollection<FacebookPostAdapter> GetTaggedPosts()
         {
             ICollection<FacebookPostAdapter> rslt = new List<FacebookPostAdapter>();
@@ -174,13 +171,11 @@ namespace OurLibrary
             {
                 foreach (Post post in friend.Posts)
                 {
-                    
                     foreach (User tagged in post.TaggedUsers)
                     {
                         if (tagged.Id == this.m_user.Id)
                         {
-                            rslt.Add(AdaptersFactory.CreateAdapter(post, AdaptersFactory.AdaptersType.Post) as FacebookPostAdapter);
-                            //rslt.Add(new FacebookPostAdapter(post));
+                            rslt.Add(AdapterFactory.CreateAdapterFromFacebook(post) as FacebookPostAdapter);
                         }
                     }
                 }
@@ -211,17 +206,16 @@ namespace OurLibrary
 
             foreach (Event evnt in m_user.Events)
             {
-                rslt.Add(AdaptersFactory.CreateAdapter(evnt, AdaptersFactory.AdaptersType.Event) as FacebookEventAdapter);
-                //rslt.Add(new FacebookEventAdapter(evnt));
+                rslt.Add(AdapterFactory.CreateAdapterFromFacebook(evnt) as FacebookEventAdapter);
             }
 
             return rslt;
         }
 
-        private FacebookFriend FindFriend(string i_ID)
+        private FacebookFriendAdapter FindFriend(string i_ID)
         {
-            FacebookFriend rslt = null;
-            foreach (FacebookFriend friend in m_Friends)
+            FacebookFriendAdapter rslt = null;
+            foreach (FacebookFriendAdapter friend in m_Friends)
             {
                 if (friend.ID == i_ID)
                 {
@@ -272,18 +266,18 @@ namespace OurLibrary
             return rslt;
         }
 
-        public ICollection<FacebookFriend> GetUserFriends()
+        public ICollection<FacebookFriendAdapter> GetUserFriends()
         {
             return this.m_Friends;
         }
 
-        public ICollection<FacebookPostAdapter> GetFriendsPosts(ICollection<FacebookFriend> i_Friends)
+        public ICollection<FacebookPostAdapter> GetFriendsPosts(ICollection<FacebookFriendAdapter> i_Friends)
         {
             List<FacebookPostAdapter> posts = new List<FacebookPostAdapter>();
 
             foreach(User curUser in this.m_user.Friends)
             {
-                foreach(FacebookFriend reqFriend in i_Friends)
+                foreach(FacebookFriendAdapter reqFriend in i_Friends)
                 {
                     if(curUser.Id == reqFriend.ID)
                     {
@@ -291,8 +285,7 @@ namespace OurLibrary
                         {
                             if(post.Description != null || post.Message != null)
                             {
-                                posts.Add(AdaptersFactory.CreateAdapter(post, AdaptersFactory.AdaptersType.Post) as FacebookPostAdapter);
-                                //posts.Add(new FacebookPostAdapter(post));
+                                posts.Add(AdapterFactory.CreateAdapterFromFacebook(post) as FacebookPostAdapter);
                             }
                         }
                     }

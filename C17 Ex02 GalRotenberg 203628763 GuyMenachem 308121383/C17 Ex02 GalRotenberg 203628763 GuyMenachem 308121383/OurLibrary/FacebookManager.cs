@@ -117,7 +117,7 @@ namespace FacebookLogicUnit
         /// Get users friends
         /// </summary>
         /// <returns>Collection of friends</returns>
-        public ICollection<FacebookFriend> FetchFriends()
+        public ICollection<FacebookFriendAdapter> FetchFriends()
         {
             return FacebookUser.Instance().GetUserFriends();
         }
@@ -127,7 +127,7 @@ namespace FacebookLogicUnit
         /// </summary>
         /// <param name="i_friends">friends to get posts from</param>
         /// <returns></returns>
-        public ICollection<FacebookPostAdapter> GetPostsFromFriends(ICollection<FacebookFriend> i_friends)
+        public ICollection<FacebookPostAdapter> GetPostsFromFriends(ICollection<FacebookFriendAdapter> i_friends)
         {
             return FacebookUser.Instance().GetFriendsPosts(i_friends);
         }

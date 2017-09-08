@@ -79,7 +79,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.buttonLogOff = new System.Windows.Forms.Button();
             descriptionLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
-            this.ColoredNameLabel = new ColorChangeLabel();
             this.TodoTab.SuspendLayout();
             this.TabControlTODO.SuspendLayout();
             this.EventsTab.SuspendLayout();
@@ -142,7 +141,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // 
             resources.ApplyResources(this.labelTODO, "labelTODO");
             this.labelTODO.Name = "labelTODO";
-            this.labelTODO.Text = "Choose Option For Selected Events";
             // 
             // comboBoxEvents
             // 
@@ -195,7 +193,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             resources.ApplyResources(this.checkedListBoxEvents, "checkedListBoxEvents");
             this.checkedListBoxEvents.Name = "checkedListBoxEvents";
             this.checkedListBoxEvents.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxEvents_SelectedIndexChanged);
-            this.checkedListBoxEvents.BringToFront();
             // 
             // PostsTab
             // 
@@ -203,27 +200,23 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             resources.ApplyResources(this.PostsTab, "PostsTab");
             this.PostsTab.Name = "PostsTab";
             this.PostsTab.UseVisualStyleBackColor = true;
-            this.PostsTab.Text = "Tagged Posts";
             // 
             // checkedListBoxPosts
             // 
             this.checkedListBoxPosts.FormattingEnabled = true;
             resources.ApplyResources(this.checkedListBoxPosts, "checkedListBoxPosts");
             this.checkedListBoxPosts.Name = "checkedListBoxPosts";
-            this.checkedListBoxPosts.SendToBack();
             // 
             // CommentTextBox
             // 
             resources.ApplyResources(this.CommentTextBox, "CommentTextBox");
             this.CommentTextBox.Name = "CommentTextBox";
-            this.CommentTextBox.SendToBack();
             // 
             // pictureBoxEvents
             // 
             resources.ApplyResources(this.pictureBoxEvents, "pictureBoxEvents");
             this.pictureBoxEvents.Name = "pictureBoxEvents";
             this.pictureBoxEvents.TabStop = false;
-            this.pictureBoxEvents.BringToFront();
             // 
             // FavoritesTab
             // 
@@ -249,7 +242,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // facebookPostBindingSource
             // 
             this.facebookPostBindingSource.DataSource = typeof(OurLibrary.FacebookPostAdapter);
-            this.facebookPostBindingSource.CurrentChanged += new System.EventHandler(this.facebookPostBindingSource_CurrentChanged);
             // 
             // nameLabel1
             // 
@@ -360,7 +352,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             resources.ApplyResources(this.pictureBoxProfile, "pictureBoxProfile");
             this.pictureBoxProfile.Name = "pictureBoxProfile";
             this.pictureBoxProfile.TabStop = false;
-            this.pictureBoxProfile.Hide();
             // 
             // TabControl
             // 
@@ -421,11 +412,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCoverPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-            //
-            //ColoredNameLabel
-            //
-            this.Controls.Add(ColoredNameLabel);
-            this.ColoredNameLabel.SendToBack();
+
         }
 
         #endregion
@@ -467,6 +454,5 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         private System.Windows.Forms.Label nameLabel1;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.PictureBox imageSmallPictureBox;
-        private ColorChangeLabel ColoredNameLabel;
     }
 }
