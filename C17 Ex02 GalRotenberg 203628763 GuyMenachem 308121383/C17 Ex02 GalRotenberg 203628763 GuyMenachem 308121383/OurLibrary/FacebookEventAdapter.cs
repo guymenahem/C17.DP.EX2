@@ -7,7 +7,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace OurLibrary
 {
-    public class FacebookEventAdapter : IHavePicture, IAttendable
+    public class FacebookEventAdapter : Adapter, IHavePicture, IAttendable
     {
         private Event m_Event;
         public DateTime? Date
@@ -15,20 +15,21 @@ namespace OurLibrary
             get { return m_Event.StartTime; }
         }
 
-        public string Name
-        {
-            get { return m_Event.Name; }
-        }
-
-        public string ID
+        public override string ID
         {
             get { return m_Event.Id; }
         }
 
-        public string Description
+        public override string Name
+        {
+            get { return m_Event.Name; }
+        }
+
+        public override string Description
         {
             get { return m_Event.Description; }
         }
+
 
         public FacebookEventAdapter(Event i_Event)
         {

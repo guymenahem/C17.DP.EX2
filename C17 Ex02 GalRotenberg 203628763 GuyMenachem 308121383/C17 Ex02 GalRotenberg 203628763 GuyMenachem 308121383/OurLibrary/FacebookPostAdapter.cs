@@ -8,9 +8,10 @@ using FacebookWrapper.ObjectModel;
 
 namespace OurLibrary
 {
-    public class FacebookPostAdapter : ILikeAble,ICommentable,IComparable
+    public class FacebookPostAdapter : Adapter, ILikeAble,ICommentable,IComparable
     {
-        public string ID
+
+        public override string ID
         {
             get
             {
@@ -18,7 +19,7 @@ namespace OurLibrary
             }
         }
 
-        public string Description
+        public override string Description
         {
             get
             {
@@ -26,14 +27,19 @@ namespace OurLibrary
             }
         }
 
+        public override string Name
+        {
+            get { return this.OriginalPost.Name; }
+        }
+
         public FacebookFriend From { get; private set; }
         
         public Post OriginalPost {  get; private set; }
 
-        public FacebookPostAdapter(Post i_Post, FacebookFriend i_Friend)
+        public FacebookPostAdapter(Post i_Post)
         {
-            From = i_Friend;
             OriginalPost = i_Post;
+            From = new FacebookFriend(i_Post.From);
         }
 
         public override string ToString()

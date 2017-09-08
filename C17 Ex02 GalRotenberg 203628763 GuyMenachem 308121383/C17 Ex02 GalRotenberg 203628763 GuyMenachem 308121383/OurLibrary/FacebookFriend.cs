@@ -13,7 +13,6 @@ namespace OurLibrary
 
         public string Name { get; private set; }
 
-        public FacebookBirthday Birthday { get; private set; }
 
         public string ProfilePicture { get; private set; }
 
@@ -22,7 +21,6 @@ namespace OurLibrary
             ID = i_friend.Id;
             Name = i_friend.Name;
             ProfilePicture = i_friend.PictureSmallURL;
-            Birthday = new FacebookBirthday(this, i_friend.Birthday);
         }
 
         public bool Compare(User i_user)

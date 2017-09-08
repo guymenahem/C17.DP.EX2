@@ -174,11 +174,13 @@ namespace OurLibrary
             {
                 foreach (Post post in friend.Posts)
                 {
+                    
                     foreach (User tagged in post.TaggedUsers)
                     {
                         if (tagged.Id == this.m_user.Id)
                         {
-                            rslt.Add(new FacebookPostAdapter(post, FindFriend(friend.Id)));
+                            rslt.Add(AdaptersFactory.CreateAdapter(post, AdaptersFactory.AdaptersType.Post) as FacebookPostAdapter);
+                            //rslt.Add(new FacebookPostAdapter(post));
                         }
                     }
                 }
@@ -209,7 +211,8 @@ namespace OurLibrary
 
             foreach (Event evnt in m_user.Events)
             {
-                rslt.Add(new FacebookEventAdapter(evnt));
+                rslt.Add(AdaptersFactory.CreateAdapter(evnt, AdaptersFactory.AdaptersType.Event) as FacebookEventAdapter);
+                //rslt.Add(new FacebookEventAdapter(evnt));
             }
 
             return rslt;
@@ -288,7 +291,8 @@ namespace OurLibrary
                         {
                             if(post.Description != null || post.Message != null)
                             {
-                                posts.Add(new FacebookPostAdapter(post, reqFriend));
+                                posts.Add(AdaptersFactory.CreateAdapter(post, AdaptersFactory.AdaptersType.Post) as FacebookPostAdapter);
+                                //posts.Add(new FacebookPostAdapter(post));
                             }
                         }
                     }
