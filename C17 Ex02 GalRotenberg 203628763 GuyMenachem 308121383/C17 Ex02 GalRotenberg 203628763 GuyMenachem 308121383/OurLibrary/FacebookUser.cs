@@ -228,7 +228,6 @@ namespace OurLibrary
         }
 
 
-        // TODO : fix posts
         public ICollection<FacebookPostAdapter> FetchPosts()
         {
             // Create for output

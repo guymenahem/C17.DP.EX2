@@ -102,7 +102,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         {
             foreach (FacebookPostAdapter post in i_Posts)
             {
-                i_ListView.Items.Add(post.ReadAbleString);
+                i_ListView.Items.Add(post.Title);
             }
         }
 

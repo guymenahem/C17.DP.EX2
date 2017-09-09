@@ -31,17 +31,17 @@ namespace OurLibrary
             get { return this.OriginalPost.Name; }
         }
 
-        private string m_ReadAbleString;
-        public string ReadAbleString
+        private string m_Title;
+        public string Title
         {
             get
             {
-                return m_ReadAbleString;
+                return m_Title;
             }
 
             private set
             {
-                this.m_ReadAbleString = value;
+                this.m_Title = value;
             }
         }
 
@@ -53,7 +53,7 @@ namespace OurLibrary
         {
             OriginalPost = i_Post;
             From = new FacebookFriendAdapter(i_Post.From);
-            this.ReadAbleString = this.BuildStringFromPost(this.OriginalPost);
+            this.Title = this.BuildStringFromPost(this.OriginalPost);
         }
 
         public override string ToString()

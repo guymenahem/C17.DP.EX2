@@ -11,6 +11,14 @@ namespace OurLibrary
     {
         private Event m_Event;
 
+        private Event OriginalEvent
+        {
+            get
+            {
+                return this.m_Event;
+            }
+        }
+
         public DateTime? Date
         {
             get { return m_Event.StartTime; }
@@ -18,17 +26,17 @@ namespace OurLibrary
 
         public string ID
         {
-            get { return m_Event.Id; }
+            get { return this.OriginalEvent.Id; }
         }
 
         public string Name
         {
-            get { return m_Event.Name; }
+            get { return this.OriginalEvent.Name; }
         }
 
         public string Description
         {
-            get { return m_Event.Description; }
+            get { return this.OriginalEvent.Description; }
         }
 
         public FacebookEventAdapter(Event i_Event)
@@ -43,7 +51,7 @@ namespace OurLibrary
 
         public string GetPicture()
         {
-            return this.m_Event.PictureNormalURL;
+            return this.OriginalEvent.PictureNormalURL;
         }
 
         public void Attend(string i_Option)
