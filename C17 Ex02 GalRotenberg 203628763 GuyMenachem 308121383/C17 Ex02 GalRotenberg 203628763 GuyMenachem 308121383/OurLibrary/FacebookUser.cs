@@ -240,7 +240,7 @@ namespace OurLibrary
                 // get string from post
                 FacebookPostAdapter curPost = AdaptersFactory.CreateAdapterFromFacebookObj(p) as FacebookPostAdapter;
 
-                if (curPost.ReadAbleString != string.Empty)
+                if (curPost.Title != string.Empty)
                 {
                     rslt.Add(curPost);
                 }
