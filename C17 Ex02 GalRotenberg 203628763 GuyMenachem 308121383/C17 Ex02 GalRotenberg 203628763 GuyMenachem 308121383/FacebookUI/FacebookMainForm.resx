@@ -1147,7 +1147,7 @@
     <value>Manual</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>FacebookMainForm</value>
+    <value>Press Login to connect</value>
   </data>
   <data name="&gt;&gt;facebookPostBindingSource.Name" xml:space="preserve">
     <value>facebookPostBindingSource</value>

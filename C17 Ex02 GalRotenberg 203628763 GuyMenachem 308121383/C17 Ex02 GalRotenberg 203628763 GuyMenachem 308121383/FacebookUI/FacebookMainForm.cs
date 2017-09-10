@@ -91,6 +91,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.pictureBoxProfile.Show();
             this.listViewPrevPosts.View = View.Details;
             this.TabControl.Enabled = true;
+            this.Text = "Connected to - " + m_AppManager.UserName;
         }
 
         /// <summary>
@@ -429,7 +430,11 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
         private void buttonLogOff_Click(object sender, EventArgs e)
         {
-            this.LogoffProcess();
+            if(m_AppManager.IsConnected())
+            {
+                this.LogoffProcess();
+            }
+            
         }
 
         private void LogoffProcess()
@@ -440,6 +445,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.pictureBoxProfile.Hide();
             this.TabControl.Enabled = false;
             this.pictureBoxUserPictures.Image = null;
+            this.Text = "Press Login to connect";
 
             this.listViewPrevPosts.Clear();
             this.listBoxAlbums.Items.Clear();

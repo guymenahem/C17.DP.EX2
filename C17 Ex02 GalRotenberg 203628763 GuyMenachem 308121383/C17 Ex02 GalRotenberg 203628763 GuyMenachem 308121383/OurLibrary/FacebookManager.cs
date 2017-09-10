@@ -11,6 +11,8 @@ namespace FacebookLogicUnit
 {
     public class FacebookManager
     {
+
+        private bool m_Connected;
         /// <summary>
         /// Cover photo URL
         /// </summary>
@@ -19,6 +21,7 @@ namespace FacebookLogicUnit
         {
             get
             {
+                m_Connected = true;
                 return FacebookUser.Instance().CoverPhoto;
             }
         }
@@ -31,6 +34,7 @@ namespace FacebookLogicUnit
         {
             get
             {
+                m_Connected = true;
                 return FacebookUser.Instance().ProfilePictureUrl;
             }
         }
@@ -38,6 +42,7 @@ namespace FacebookLogicUnit
         public void Connect(string i_UserAccessToken)
         {
             FacebookUser.Instance(i_UserAccessToken);
+            m_Connected = true;
         }
 
         /// <summary>
@@ -47,6 +52,7 @@ namespace FacebookLogicUnit
         {
             get
             {
+                m_Connected = true;
                 return FacebookUser.Instance().Name;
             }
         }
@@ -73,6 +79,7 @@ namespace FacebookLogicUnit
         /// <returns>COllection of posts</returns>
         public ICollection<FacebookPostAdapter> FetchPosts()
         {
+            m_Connected = true;
             return FacebookUser.Instance().FetchPosts();
         }
 
@@ -82,6 +89,7 @@ namespace FacebookLogicUnit
         /// <returns>get all posts the users taaged at</returns>
         public ICollection<FacebookPostAdapter> FetchTaggedPosts()
         {
+            m_Connected = true;
             return FacebookUser.Instance().GetTaggedPosts();
         }
 
@@ -91,6 +99,7 @@ namespace FacebookLogicUnit
         /// <returns>Collection of albums</returns>
         public ICollection<FacebookAlbum> FetchAlbums()
         {
+            m_Connected = true;
             return FacebookUser.Instance().GetUserAlbums();
         }
 
@@ -100,6 +109,7 @@ namespace FacebookLogicUnit
         /// <returns>Collection of the user events</returns>
         public ICollection<FacebookEventAdapter> FetchEvents()
         {
+            m_Connected = true;
             return FacebookUser.Instance().FetchEvents();
         }
 
@@ -145,6 +155,11 @@ namespace FacebookLogicUnit
         public void LikeAndComment(CheckedItemCollection i_TaggedPosts, string i_Msg)
         {
             FacebookUser.Instance().LikeAndComment(i_TaggedPosts, i_Msg);
+        }
+
+        public bool IsConnected()
+        {
+            return m_Connected;
         }
     }
 }
