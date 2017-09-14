@@ -186,8 +186,8 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// <param name="e"></param>
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
-            this.pictureBoxUserPictures.LoadAsync(album.CurPhoto.GetPicture());
+            FacebookAlbum album = (FacebookAlbum)this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex];
+            this.pictureBoxUserPictures.LoadAsync(this.m_AppManager.AlbumChanged(album));
         }
 
         /// <summary>
@@ -197,11 +197,8 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// <param name="e"></param>
         private void buttonPrevPhoto_Click(object sender, EventArgs e)
         {
-            if(this.listBoxAlbums.SelectedIndex > -1)
-            {
-                FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
-                this.pictureBoxUserPictures.LoadAsync(album.PrevPhoto.GetPicture());
-            }
+            FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
+            this.pictureBoxUserPictures.LoadAsync(m_AppManager.PrevPhoto());
         }
 
         /// <summary>
@@ -211,11 +208,11 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// <param name="e"></param>
         private void buttonNextPhoto_Click(object sender, EventArgs e)
         {
-            if (this.listBoxAlbums.SelectedIndex > -1)
-            {
+           // if (this.listBoxAlbums.SelectedIndex > -1)
+            //{
                 FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
-                this.pictureBoxUserPictures.LoadAsync(album.NextPhoto.GetPicture());
-            } 
+                this.pictureBoxUserPictures.LoadAsync(m_AppManager.NextPhoto());
+            //} 
         }
 
         /// <summary>

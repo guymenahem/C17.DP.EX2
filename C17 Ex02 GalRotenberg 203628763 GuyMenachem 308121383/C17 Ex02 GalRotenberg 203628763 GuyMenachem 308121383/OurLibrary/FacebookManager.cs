@@ -13,6 +13,7 @@ namespace FacebookLogicUnit
     {
 
         private bool m_Connected;
+        private IAlbumIterator m_Iterator=null;
         /// <summary>
         /// Cover photo URL
         /// </summary>
@@ -160,6 +161,33 @@ namespace FacebookLogicUnit
         public bool IsConnected()
         {
             return m_Connected;
+        }
+
+        private string FromObjToPic(Object i_Pic)
+        {
+            FacebookPicture pic = i_Pic as FacebookPicture;
+            return pic.URL;
+        }
+
+        public string AlbumChanged(FacebookAlbum album)
+        {
+            if(m_Iterator==null || m_Iterator.ID != album.ID)
+                m_Iterator = album.CreateIterator() as IAlbumIterator;
+
+            return FromObjToPic(m_Iterator.getCurrent());
+            
+        }
+
+        public string NextPhoto()
+        {
+            m_Iterator.MoveNext();
+            return FromObjToPic(m_Iterator.getCurrent());
+        }
+
+        public string PrevPhoto()
+        {
+            m_Iterator.MovePrev();
+            return FromObjToPic(m_Iterator.getCurrent());
         }
     }
 }

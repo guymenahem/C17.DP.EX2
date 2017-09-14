@@ -55,10 +55,13 @@
     <Compile Include="FacebookPicture.cs" />
     <Compile Include="FacebookPostAdapter.cs" />
     <Compile Include="FacebookUser.cs" />
+    <Compile Include="IAggregate.cs" />
     <Compile Include="IAttendable.cs" />
     <Compile Include="ICommentable.cs" />
     <Compile Include="IFacebookAdapter.cs" />
     <Compile Include="IHavePicture.cs" />
+    <Compile Include="IAlbumIterator.cs" />
+    <Compile Include="IIterator.cs" />
     <Compile Include="ILikeAble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
