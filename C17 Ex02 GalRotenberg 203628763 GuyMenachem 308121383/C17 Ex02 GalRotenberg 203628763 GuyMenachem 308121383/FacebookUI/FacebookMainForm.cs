@@ -100,6 +100,12 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.Text = "Connected to - " + m_AppManager.UserName;
             this.buttonNextPhoto.Invoke(new Action(() => buttonNextPhoto.Enabled = true));
             this.buttonPrevPhoto.Invoke(new Action(() => buttonPrevPhoto.Enabled = true));
+
+            // Add label decorator
+            this.labelName.Text = m_AppManager.UserName;
+            ColoredChangeLabel clb = new ColoredChangeLabel(this.labelName);
+            this.pictureBoxCoverPhoto.LoadCompleted += clb.BindToPictureUpload;
+            
         }
 
         /// <summary>

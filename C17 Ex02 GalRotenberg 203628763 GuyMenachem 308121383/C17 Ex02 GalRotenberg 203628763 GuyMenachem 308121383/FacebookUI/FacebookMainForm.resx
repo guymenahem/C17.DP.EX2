@@ -201,13 +201,145 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonLogIn.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <metadata name="TodoTab.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="TodoTab.AccessibleName" xml:space="preserve">
     <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPosts.Name" xml:space="preserve">
+    <value>comboBoxPosts</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPosts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPosts.Parent" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;comboBoxPosts.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelTODO.Name" xml:space="preserve">
+    <value>labelTODO</value>
+  </data>
+  <data name="&gt;&gt;labelTODO.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelTODO.Parent" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;labelTODO.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;comboBoxEvents.Name" xml:space="preserve">
+    <value>comboBoxEvents</value>
+  </data>
+  <data name="&gt;&gt;comboBoxEvents.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;comboBoxEvents.Parent" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;comboBoxEvents.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;ActionButton.Name" xml:space="preserve">
+    <value>ActionButton</value>
+  </data>
+  <data name="&gt;&gt;ActionButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ActionButton.Parent" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;ActionButton.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;ClearTextButton.Name" xml:space="preserve">
+    <value>ClearTextButton</value>
+  </data>
+  <data name="&gt;&gt;ClearTextButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ClearTextButton.Parent" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;ClearTextButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;PostCommentButton.Name" xml:space="preserve">
+    <value>PostCommentButton</value>
+  </data>
+  <data name="&gt;&gt;PostCommentButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PostCommentButton.Parent" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;PostCommentButton.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;TabControlTODO.Name" xml:space="preserve">
+    <value>TabControlTODO</value>
+  </data>
+  <data name="&gt;&gt;TabControlTODO.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabControlTODO.Parent" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;TabControlTODO.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;CommentTextBox.Name" xml:space="preserve">
+    <value>CommentTextBox</value>
+  </data>
+  <data name="&gt;&gt;CommentTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CommentTextBox.Parent" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;CommentTextBox.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEvents.Name" xml:space="preserve">
+    <value>pictureBoxEvents</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEvents.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEvents.Parent" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxEvents.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="TodoTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="TodoTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 266</value>
+  </data>
+  <data name="TodoTab.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="TodoTab.Text" xml:space="preserve">
+    <value>TODO</value>
+  </data>
+  <data name="&gt;&gt;TodoTab.Name" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;TodoTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TodoTab.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;TodoTab.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="comboBoxPosts.Items" xml:space="preserve">
     <value>Like To All</value>
@@ -371,14 +503,50 @@
   <data name="&gt;&gt;PostCommentButton.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="checkedListBoxEvents.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 1</value>
+  <data name="&gt;&gt;EventsTab.Name" xml:space="preserve">
+    <value>EventsTab</value>
   </data>
-  <data name="checkedListBoxEvents.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 199</value>
+  <data name="&gt;&gt;EventsTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="checkedListBoxEvents.TabIndex" type="System.Int32, mscorlib">
+  <data name="&gt;&gt;EventsTab.Parent" xml:space="preserve">
+    <value>TabControlTODO</value>
+  </data>
+  <data name="&gt;&gt;EventsTab.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;PostsTab.Name" xml:space="preserve">
+    <value>PostsTab</value>
+  </data>
+  <data name="&gt;&gt;PostsTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;PostsTab.Parent" xml:space="preserve">
+    <value>TabControlTODO</value>
+  </data>
+  <data name="&gt;&gt;PostsTab.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="TabControlTODO.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 20</value>
+  </data>
+  <data name="TabControlTODO.Size" type="System.Drawing.Size, System.Drawing">
+    <value>209, 216</value>
+  </data>
+  <data name="TabControlTODO.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;TabControlTODO.Name" xml:space="preserve">
+    <value>TabControlTODO</value>
+  </data>
+  <data name="&gt;&gt;TabControlTODO.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;TabControlTODO.Parent" xml:space="preserve">
+    <value>TodoTab</value>
+  </data>
+  <data name="&gt;&gt;TabControlTODO.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="&gt;&gt;checkedListBoxEvents.Name" xml:space="preserve">
     <value>checkedListBoxEvents</value>
@@ -420,14 +588,26 @@
   <data name="&gt;&gt;EventsTab.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="checkedListBoxPosts.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="checkedListBoxEvents.Location" type="System.Drawing.Point, System.Drawing">
     <value>2, 1</value>
   </data>
-  <data name="checkedListBoxPosts.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="checkedListBoxEvents.Size" type="System.Drawing.Size, System.Drawing">
     <value>199, 199</value>
   </data>
-  <data name="checkedListBoxPosts.TabIndex" type="System.Int32, mscorlib">
+  <data name="checkedListBoxEvents.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxEvents.Name" xml:space="preserve">
+    <value>checkedListBoxEvents</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxEvents.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxEvents.Parent" xml:space="preserve">
+    <value>EventsTab</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxEvents.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;checkedListBoxPosts.Name" xml:space="preserve">
     <value>checkedListBoxPosts</value>
@@ -468,26 +648,26 @@
   <data name="&gt;&gt;PostsTab.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="TabControlTODO.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 20</value>
+  <data name="checkedListBoxPosts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 1</value>
   </data>
-  <data name="TabControlTODO.Size" type="System.Drawing.Size, System.Drawing">
-    <value>209, 216</value>
+  <data name="checkedListBoxPosts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>199, 199</value>
   </data>
-  <data name="TabControlTODO.TabIndex" type="System.Int32, mscorlib">
+  <data name="checkedListBoxPosts.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxPosts.Name" xml:space="preserve">
+    <value>checkedListBoxPosts</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxPosts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxPosts.Parent" xml:space="preserve">
+    <value>PostsTab</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxPosts.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;TabControlTODO.Name" xml:space="preserve">
-    <value>TabControlTODO</value>
-  </data>
-  <data name="&gt;&gt;TabControlTODO.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TabControlTODO.Parent" xml:space="preserve">
-    <value>TodoTab</value>
-  </data>
-  <data name="&gt;&gt;TabControlTODO.ZOrder" xml:space="preserve">
-    <value>6</value>
   </data>
   <data name="CommentTextBox.Location" type="System.Drawing.Point, System.Drawing">
     <value>419, 59</value>
@@ -537,30 +717,6 @@
   <data name="&gt;&gt;pictureBoxEvents.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="TodoTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="TodoTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>863, 266</value>
-  </data>
-  <data name="TodoTab.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="TodoTab.Text" xml:space="preserve">
-    <value>TODO</value>
-  </data>
-  <data name="&gt;&gt;TodoTab.Name" xml:space="preserve">
-    <value>TodoTab</value>
-  </data>
-  <data name="&gt;&gt;TodoTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;TodoTab.Parent" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;TodoTab.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
   <metadata name="FavoritesTab.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -569,6 +725,105 @@
   </data>
   <data name="FavoritesTab.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="&gt;&gt;imageSmallPictureBox.Name" xml:space="preserve">
+    <value>imageSmallPictureBox</value>
+  </data>
+  <data name="&gt;&gt;imageSmallPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageSmallPictureBox.Parent" xml:space="preserve">
+    <value>FavoritesTab</value>
+  </data>
+  <data name="&gt;&gt;imageSmallPictureBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;nameLabel1.Name" xml:space="preserve">
+    <value>nameLabel1</value>
+  </data>
+  <data name="&gt;&gt;nameLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nameLabel1.Parent" xml:space="preserve">
+    <value>FavoritesTab</value>
+  </data>
+  <data name="&gt;&gt;nameLabel1.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;descriptionTextBox.Name" xml:space="preserve">
+    <value>descriptionTextBox</value>
+  </data>
+  <data name="&gt;&gt;descriptionTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;descriptionTextBox.Parent" xml:space="preserve">
+    <value>FavoritesTab</value>
+  </data>
+  <data name="&gt;&gt;descriptionTextBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;buttonLoadPosts.Name" xml:space="preserve">
+    <value>buttonLoadPosts</value>
+  </data>
+  <data name="&gt;&gt;buttonLoadPosts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonLoadPosts.Parent" xml:space="preserve">
+    <value>FavoritesTab</value>
+  </data>
+  <data name="&gt;&gt;buttonLoadPosts.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;listBoxPosts.Name" xml:space="preserve">
+    <value>listBoxPosts</value>
+  </data>
+  <data name="&gt;&gt;listBoxPosts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBoxPosts.Parent" xml:space="preserve">
+    <value>FavoritesTab</value>
+  </data>
+  <data name="&gt;&gt;listBoxPosts.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxFriends.Name" xml:space="preserve">
+    <value>checkedListBoxFriends</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxFriends.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxFriends.Parent" xml:space="preserve">
+    <value>FavoritesTab</value>
+  </data>
+  <data name="&gt;&gt;checkedListBoxFriends.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="FavoritesTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="FavoritesTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="FavoritesTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 266</value>
+  </data>
+  <data name="FavoritesTab.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="FavoritesTab.Text" xml:space="preserve">
+    <value>Favorites</value>
+  </data>
+  <data name="&gt;&gt;FavoritesTab.Name" xml:space="preserve">
+    <value>FavoritesTab</value>
+  </data>
+  <data name="&gt;&gt;FavoritesTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FavoritesTab.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;FavoritesTab.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <metadata name="facebookPostBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -594,6 +849,9 @@
   <data name="&gt;&gt;imageSmallPictureBox.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="facebookPostBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="nameLabel1.Location" type="System.Drawing.Point, System.Drawing">
     <value>636, 19</value>
   </data>
@@ -711,38 +969,146 @@
   <data name="&gt;&gt;checkedListBoxFriends.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="FavoritesTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="FavoritesTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="FavoritesTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>863, 266</value>
-  </data>
-  <data name="FavoritesTab.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="FavoritesTab.Text" xml:space="preserve">
-    <value>Favorites</value>
-  </data>
-  <data name="&gt;&gt;FavoritesTab.Name" xml:space="preserve">
-    <value>FavoritesTab</value>
-  </data>
-  <data name="&gt;&gt;FavoritesTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FavoritesTab.Parent" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;FavoritesTab.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <metadata name="FacebookTab.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="FacebookTab.AccessibleName" xml:space="preserve">
     <value>Facebook</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>FacebookTab</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;listViewPrevPosts.Name" xml:space="preserve">
+    <value>listViewPrevPosts</value>
+  </data>
+  <data name="&gt;&gt;listViewPrevPosts.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listViewPrevPosts.Parent" xml:space="preserve">
+    <value>FacebookTab</value>
+  </data>
+  <data name="&gt;&gt;listViewPrevPosts.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;buttonNextPhoto.Name" xml:space="preserve">
+    <value>buttonNextPhoto</value>
+  </data>
+  <data name="&gt;&gt;buttonNextPhoto.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonNextPhoto.Parent" xml:space="preserve">
+    <value>FacebookTab</value>
+  </data>
+  <data name="&gt;&gt;buttonNextPhoto.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;buttonPrevPhoto.Name" xml:space="preserve">
+    <value>buttonPrevPhoto</value>
+  </data>
+  <data name="&gt;&gt;buttonPrevPhoto.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonPrevPhoto.Parent" xml:space="preserve">
+    <value>FacebookTab</value>
+  </data>
+  <data name="&gt;&gt;buttonPrevPhoto.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;buttonClear.Name" xml:space="preserve">
+    <value>buttonClear</value>
+  </data>
+  <data name="&gt;&gt;buttonClear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonClear.Parent" xml:space="preserve">
+    <value>FacebookTab</value>
+  </data>
+  <data name="&gt;&gt;buttonClear.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxUserPictures.Name" xml:space="preserve">
+    <value>pictureBoxUserPictures</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxUserPictures.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxUserPictures.Parent" xml:space="preserve">
+    <value>FacebookTab</value>
+  </data>
+  <data name="&gt;&gt;pictureBoxUserPictures.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;listBoxAlbums.Name" xml:space="preserve">
+    <value>listBoxAlbums</value>
+  </data>
+  <data name="&gt;&gt;listBoxAlbums.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listBoxAlbums.Parent" xml:space="preserve">
+    <value>FacebookTab</value>
+  </data>
+  <data name="&gt;&gt;listBoxAlbums.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;buttonSubmitPost.Name" xml:space="preserve">
+    <value>buttonSubmitPost</value>
+  </data>
+  <data name="&gt;&gt;buttonSubmitPost.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonSubmitPost.Parent" xml:space="preserve">
+    <value>FacebookTab</value>
+  </data>
+  <data name="&gt;&gt;buttonSubmitPost.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;textBoxPost.Name" xml:space="preserve">
+    <value>textBoxPost</value>
+  </data>
+  <data name="&gt;&gt;textBoxPost.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBoxPost.Parent" xml:space="preserve">
+    <value>FacebookTab</value>
+  </data>
+  <data name="&gt;&gt;textBoxPost.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="FacebookTab.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="FacebookTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 3, 3, 3</value>
+  </data>
+  <data name="FacebookTab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 266</value>
+  </data>
+  <data name="FacebookTab.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="FacebookTab.Text" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="&gt;&gt;FacebookTab.Name" xml:space="preserve">
+    <value>FacebookTab</value>
+  </data>
+  <data name="&gt;&gt;FacebookTab.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FacebookTab.Parent" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="&gt;&gt;FacebookTab.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -972,33 +1338,6 @@
   <data name="&gt;&gt;textBoxPost.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="FacebookTab.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 22</value>
-  </data>
-  <data name="FacebookTab.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 3, 3, 3</value>
-  </data>
-  <data name="FacebookTab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>863, 266</value>
-  </data>
-  <data name="FacebookTab.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="FacebookTab.Text" xml:space="preserve">
-    <value>Facebook</value>
-  </data>
-  <data name="&gt;&gt;FacebookTab.Name" xml:space="preserve">
-    <value>FacebookTab</value>
-  </data>
-  <data name="&gt;&gt;FacebookTab.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FacebookTab.Parent" xml:space="preserve">
-    <value>TabControl</value>
-  </data>
-  <data name="&gt;&gt;FacebookTab.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="pictureBoxProfile.Location" type="System.Drawing.Point, System.Drawing">
     <value>700, 12</value>
   </data>
@@ -1018,7 +1357,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxProfile.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="TabControl.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1045,7 +1384,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;TabControl.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="pictureBoxCoverPhoto.ImageLocation" xml:space="preserve">
     <value>https://www.famouslogos.us/images/facebook-logo.jpg</value>
@@ -1072,7 +1411,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxCoverPhoto.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="checkBoxRememberMe.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1102,7 +1441,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;checkBoxRememberMe.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="buttonLogOff.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 6.75pt</value>
@@ -1129,6 +1468,30 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;buttonLogOff.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="labelName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 95</value>
+  </data>
+  <data name="labelName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 13</value>
+  </data>
+  <data name="labelName.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;labelName.Name" xml:space="preserve">
+    <value>labelName</value>
+  </data>
+  <data name="&gt;&gt;labelName.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelName.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;labelName.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

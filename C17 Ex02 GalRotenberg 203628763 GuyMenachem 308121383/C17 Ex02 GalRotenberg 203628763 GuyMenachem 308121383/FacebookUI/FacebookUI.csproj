@@ -53,6 +53,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="ColoredChangeLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FacebookMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
