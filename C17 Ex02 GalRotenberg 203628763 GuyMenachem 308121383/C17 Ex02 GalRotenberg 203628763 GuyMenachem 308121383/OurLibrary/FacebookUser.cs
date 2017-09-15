@@ -171,11 +171,14 @@ namespace OurLibrary
             {
                 foreach (Post post in friend.Posts)
                 {
-                    foreach (User tagged in post.TaggedUsers)
+                    if(post.TargetUsers!=null)
                     {
-                        if (tagged.Id == this.m_user.Id)
+                        foreach (User tagged in post.TargetUsers)
                         {
-                            rslt.Add(AdaptersFactory.CreateAdapterFromFacebookObj(post) as FacebookPostAdapter);
+                            if (tagged.Id == this.m_user.Id)
+                            {
+                                rslt.Add(AdaptersFactory.CreateAdapterFromFacebookObj(post) as FacebookPostAdapter);
+                            }
                         }
                     }
                 }
