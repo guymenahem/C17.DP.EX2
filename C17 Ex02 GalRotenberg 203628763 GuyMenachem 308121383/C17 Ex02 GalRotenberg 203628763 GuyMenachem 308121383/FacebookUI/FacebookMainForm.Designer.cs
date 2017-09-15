@@ -77,6 +77,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.pictureBoxCoverPhoto = new System.Windows.Forms.PictureBox();
             this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.buttonLogOff = new System.Windows.Forms.Button();
+            this.labelName = new System.Windows.Forms.Label();
             descriptionLabel = new System.Windows.Forms.Label();
             nameLabel = new System.Windows.Forms.Label();
             this.TodoTab.SuspendLayout();
@@ -382,10 +383,16 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.buttonLogOff.UseVisualStyleBackColor = true;
             this.buttonLogOff.Click += new System.EventHandler(this.buttonLogOff_Click);
             // 
+            // labelName
+            // 
+            resources.ApplyResources(this.labelName, "labelName");
+            this.labelName.Name = "labelName";
+            // 
             // FacebookMainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelName);
             this.Controls.Add(this.buttonLogOff);
             this.Controls.Add(this.checkBoxRememberMe);
             this.Controls.Add(this.pictureBoxProfile);
@@ -454,5 +461,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         private System.Windows.Forms.Label nameLabel1;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.PictureBox imageSmallPictureBox;
+        private System.Windows.Forms.Label labelName;
     }
 }
