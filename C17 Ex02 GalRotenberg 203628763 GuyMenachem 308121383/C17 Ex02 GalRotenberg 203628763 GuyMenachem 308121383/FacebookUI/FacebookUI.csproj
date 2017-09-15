@@ -59,6 +59,9 @@
     <Compile Include="FacebookMainForm.Designer.cs">
       <DependentUpon>FacebookMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListBoxLoadObserver.cs" />
+    <Compile Include="ILoadObserver.cs" />
+    <Compile Include="ListViewLoadObserver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FacebookMainForm.en.resx">

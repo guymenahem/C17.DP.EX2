@@ -16,12 +16,16 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 {
     public partial class FacebookMainForm : Form
     {
+        private List<ILoadObserver> m_LoadObservers;
+
         public FacebookMainForm()
         {
             InitializeComponent();
 
             m_AppManager = new FacebookManager();
             m_AppSettings = new AppSettings();
+
+            initObservers();
             
             // Adding Appsetting applications:
             m_AppSettings.LoadSettingsFromFile();
@@ -34,6 +38,26 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
                 this.Location = m_AppSettings.WindowsStart;
                 this.checkBoxRememberMe.Checked = true;
             }
+        }
+
+        private void initObservers()
+        {
+            this.m_LoadObservers = new List<ILoadObserver>();
+
+            // albums observer
+            this.m_LoadObservers.Add(new ListBoxLoadObserver<FacebookAlbum>(){ListBox = this.listBoxAlbums,LoadFunction = this.m_AppManager.FetchAlbums });
+
+            // EventsObserver
+            this.m_LoadObservers.Add(new ListBoxLoadObserver<FacebookEventAdapter>(){ListBox = checkedListBoxEvents, LoadFunction = this.m_AppManager.FetchEvents });
+
+            // Posts Observer 
+            this.m_LoadObservers.Add(new ListBoxLoadObserver<FacebookPostAdapter>(){ListBox = this.checkedListBoxPosts , LoadFunction = this.m_AppManager.FetchTaggedPosts});
+
+            // Fav Observer
+            this.m_LoadObservers.Add(new ListBoxLoadObserver<FacebookFriendAdapter>(){ListBox = this.checkedListBoxFriends , LoadFunction = this.m_AppManager.FetchFriends });
+
+            // Posts Observer
+            this.m_LoadObservers.Add(new ListViewLoadObserver<FacebookPostAdapter>(){ListView = this.listViewPrevPosts, LoadFunction = this.m_AppManager.FetchPosts });
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
@@ -55,32 +79,14 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             // set list view
             this.listViewPrevPosts.Columns.Add(string.Empty, string.Empty, this.listViewPrevPosts.Width - 20);
 
-            // Get Posts
-            this.addStringsToListView(this.listViewPrevPosts, m_AppManager.FetchPosts());
+            // Make Observers Load
+            foreach (ILoadObserver observer in this.m_LoadObservers)
+            {
+                observer.LoadNotify();
+            }
 
-            this.ThreadOperations();
         }
 
-        private void ThreadOperations()
-        {
-            Thread Current_Thread;
-
-            // Get Albums
-            Current_Thread = new Thread(GetAlbums){IsBackground = true};
-            Current_Thread.Start();
-
-            // Add events
-            Current_Thread = new Thread(GetEvents){ IsBackground = true };
-            Current_Thread.Start();
-
-            // Add tagged posts
-            Current_Thread = new Thread(GetTaggedPosts){ IsBackground = true };
-            Current_Thread.Start();
-
-            // Load all favorits page
-            Current_Thread = new Thread(this.loadFavoritsPage){ IsBackground = true };
-            Current_Thread.Start();
-        }
 
         private void InitializeComponentsForLogIN()
         {
@@ -92,19 +98,8 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.listViewPrevPosts.View = View.Details;
             this.TabControl.Enabled = true;
             this.Text = "Connected to - " + m_AppManager.UserName;
-        }
-
-        /// <summary>
-        /// Add string to list view view
-        /// </summary>
-        /// <param name="i_ListView">The list view to add</param>
-        /// <param name="i_Strings">String that shloud be added</param>
-        private void addStringsToListView(ListView i_ListView, ICollection<FacebookPostAdapter> i_Posts)
-        {
-            foreach (FacebookPostAdapter post in i_Posts)
-            {
-                i_ListView.Items.Add(post.Title);
-            }
+            this.buttonNextPhoto.Invoke(new Action(() => buttonNextPhoto.Enabled = true));
+            this.buttonPrevPhoto.Invoke(new Action(() => buttonPrevPhoto.Enabled = true));
         }
 
         /// <summary>
@@ -120,35 +115,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             i_ListView.Items.Insert(0, newPost);
         }
 
-        private void GetAlbums()
-        {
-            foreach (FacebookAlbum album in m_AppManager.FetchAlbums())
-            {
-                if(album.HasPhotos)
-                {
-                    this.listBoxAlbums.Invoke(new Action(() => listBoxAlbums.Items.Add(album)));
-                }
-            }
-
-            this.buttonNextPhoto.Invoke(new Action(() => buttonNextPhoto.Enabled = true));
-            this.buttonPrevPhoto.Invoke(new Action(() => buttonPrevPhoto.Enabled = true));
-        }
-
-        private void GetEvents()
-        {
-            foreach (FacebookEventAdapter fbE in m_AppManager.FetchEvents())
-            {
-                this.checkedListBoxEvents.Invoke(new Action(() => checkedListBoxEvents.Items.Add(fbE)));
-            }
-        }
-
-        private void GetTaggedPosts()
-        {
-            foreach (FacebookPostAdapter fbP in m_AppManager.FetchTaggedPosts())
-            {
-                this.checkedListBoxPosts.Invoke(new Action(() => checkedListBoxPosts.Items.Add(fbP)));
-            }
-        }
 
         /// <summary>
         /// Click on post button
@@ -450,6 +416,11 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.checkedListBoxPosts.Items.Clear();
             this.checkedListBoxFriends.Items.Clear();
             facebookPostBindingSource.Clear();
+
+            foreach(ILoadObserver obs in this.m_LoadObservers)
+            {
+                obs.UnLoadNotify();
+            }
         }
     }
 }
