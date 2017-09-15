@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace OurLibrary
 {
-    public interface IAggregate
+    interface ICyclicEnumerator<T> : IEnumerator<T>
     {
-        IIterator CreateIterator();
+        bool MovePrev();
+
+        string ID
+        {
+            get;
+        }
     }
 }
