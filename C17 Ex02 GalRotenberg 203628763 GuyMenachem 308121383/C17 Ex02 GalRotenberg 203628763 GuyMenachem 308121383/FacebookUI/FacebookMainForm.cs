@@ -78,6 +78,8 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
             // set list view
             this.listViewPrevPosts.Columns.Add(string.Empty, string.Empty, this.listViewPrevPosts.Width - 20);
+
+            this.NotifyLoad();
         }
 
         private void NotifyLoad()
