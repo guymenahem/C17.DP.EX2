@@ -8,13 +8,13 @@ using FacebookWrapper.ObjectModel;
 
 namespace OurLibrary
 {
-    public class FacebookPostAdapter : IFacebookAdapter, ILikeAble, ICommentable, IComparable
+    public class FacebookPostAdapter : IFacebookPostAdapter
     {
         public string ID
         {
             get
             {
-                return this.OriginalPost.ObjectID;
+                return this.OriginalPost.Id;
             }
         }
 
@@ -22,28 +22,18 @@ namespace OurLibrary
         {
             get
             {
-                return this.OriginalPost.Description + this.OriginalPost.Message;
+                return (this.OriginalPost.Description != null) ? this.OriginalPost.Description : string.Empty;
             }
         }
 
         public string Name
         {
-            get { return this.OriginalPost.Name; }
-        }
-
-        private string m_Title;
-        public string Title
-        {
             get
             {
-                return m_Title;
-            }
-
-            private set
-            {
-                this.m_Title = value;
+                return (this.OriginalPost.Name != null) ? this.OriginalPost.Name : string.Empty; ;
             }
         }
+
 
         public FacebookFriendAdapter From { get; private set; }
         
@@ -53,7 +43,6 @@ namespace OurLibrary
         {
             OriginalPost = i_Post;
             From = new FacebookFriendAdapter(i_Post.From);
-            this.Title = this.BuildStringFromPost(this.OriginalPost);
         }
 
         public override string ToString()
@@ -95,25 +84,6 @@ namespace OurLibrary
         public void Like()
         {
             this.OriginalPost.Like();
-        }
-
-        private string BuildStringFromPost(Post i_Post)
-        {
-            string ret = string.Empty;
-
-            // Add decription
-            if (i_Post.Description != null)
-            {
-                ret += i_Post.Description;
-            }
-
-            // Add message
-            if (i_Post.Message != null)
-            {
-                ret += i_Post.Message;
-            }
-
-            return ret;
         }
     }
 }

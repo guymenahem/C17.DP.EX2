@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdaptersFactory.cs" />
+    <Compile Include="FaceBookPostAdaFullTitleDecorator.cs" />
     <Compile Include="ICyclicEnumerator.cs" />
     <Compile Include="FacebookAlbum.cs" />
     <Compile Include="FacebookEventAdapter.cs" />
@@ -59,6 +60,8 @@
     <Compile Include="IAttendable.cs" />
     <Compile Include="ICommentable.cs" />
     <Compile Include="IFacebookAdapter.cs" />
+    <Compile Include="IFacebookpostAdapter.cs" />
+    <Compile Include="FacebookPostAdapterDecorator.cs" />
     <Compile Include="IHavePicture.cs" />
     <Compile Include="ILikeAble.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

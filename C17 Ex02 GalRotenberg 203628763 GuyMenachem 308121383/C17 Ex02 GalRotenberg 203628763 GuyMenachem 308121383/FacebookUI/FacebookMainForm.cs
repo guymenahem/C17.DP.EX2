@@ -57,7 +57,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.Observe(new ListBoxLoadObserver<FacebookFriendAdapter>(){ListBox = this.checkedListBoxFriends , LoadFunction = this.m_AppManager.FetchFriends });
 
             // Posts Observer
-            this.Observe(new ListViewLoadObserver<FacebookPostAdapter>(){ListView = this.listViewPrevPosts, LoadFunction = this.m_AppManager.FetchPosts });
+            this.Observe(new ListViewLoadObserver<IFacebookPostAdapter>(){ListView = this.listViewPrevPosts, LoadFunction = this.m_AppManager.FetchPosts });
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)

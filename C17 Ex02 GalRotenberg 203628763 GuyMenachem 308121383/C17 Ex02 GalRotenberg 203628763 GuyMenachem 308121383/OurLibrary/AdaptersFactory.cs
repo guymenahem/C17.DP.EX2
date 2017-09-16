@@ -13,7 +13,7 @@ namespace OurLibrary
         {
             if(i_FacebookObj is Post)
             {
-                return new FacebookPostAdapter((Post)i_FacebookObj);
+                return new FacebookPostAdaFullTitleDecorator(new FacebookPostAdapter((Post)i_FacebookObj));
             }
             else if(i_FacebookObj is Event)
             {

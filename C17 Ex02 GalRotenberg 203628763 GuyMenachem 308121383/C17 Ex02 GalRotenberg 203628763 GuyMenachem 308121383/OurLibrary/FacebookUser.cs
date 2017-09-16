@@ -231,18 +231,18 @@ namespace OurLibrary
         }
 
 
-        public ICollection<FacebookPostAdapter> FetchPosts()
+        public ICollection<IFacebookPostAdapter> FetchPosts()
         {
             // Create for output
-            ICollection<FacebookPostAdapter> rslt = new List<FacebookPostAdapter>();
+            ICollection<IFacebookPostAdapter> rslt = new List<IFacebookPostAdapter>();
 
             // For each post
             foreach (Post p in m_user.Posts)
             {
                 // get string from post
-                FacebookPostAdapter curPost = AdaptersFactory.CreateAdapterFromFacebookObj(p) as FacebookPostAdapter;
+                IFacebookPostAdapter curPost = AdaptersFactory.CreateAdapterFromFacebookObj(p) as IFacebookPostAdapter;
 
-                if (curPost.Title != string.Empty)
+                if (curPost.ToString() != string.Empty)
                 {
                     rslt.Add(curPost);
                 }
