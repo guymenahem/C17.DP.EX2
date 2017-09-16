@@ -139,7 +139,7 @@ namespace FacebookLogicUnit
         /// </summary>
         /// <param name="i_friends">friends to get posts from</param>
         /// <returns></returns>
-        public ICollection<FacebookPostAdapter> GetPostsFromFriends(ICollection<FacebookFriendAdapter> i_friends)
+        public ICollection<IFacebookPostAdapter> GetPostsFromFriends(ICollection<FacebookFriendAdapter> i_friends)
         {
             return FacebookUser.Instance().GetFriendsPosts(i_friends);
         }

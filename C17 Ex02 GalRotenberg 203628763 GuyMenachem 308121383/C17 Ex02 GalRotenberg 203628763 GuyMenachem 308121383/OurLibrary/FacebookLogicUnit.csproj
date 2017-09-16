@@ -31,10 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Facebook">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2017\Projects\FacebookAPI_Application\Facebook.dll</HintPath>
+      <HintPath>..\..\Facebook.dll</HintPath>
     </Reference>
     <Reference Include="FbGraphApiWrapper">
-      <HintPath>..\..\..\..\..\Documents\Visual Studio 2017\Projects\FacebookAPI_Application\FbGraphApiWrapper.dll</HintPath>
+      <HintPath>..\..\FbGraphApiWrapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

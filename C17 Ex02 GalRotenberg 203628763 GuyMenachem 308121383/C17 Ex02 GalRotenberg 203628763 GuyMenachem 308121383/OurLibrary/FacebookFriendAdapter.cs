@@ -29,7 +29,7 @@ namespace OurLibrary
         {
             get
             {
-                return this.OriginalUser.FirstName + this.OriginalUser.LastName;
+                return this.OriginalUser.Name;
             }
         }
 

@@ -255,9 +255,9 @@ namespace OurLibrary
             return this.m_Friends;
         }
 
-        public ICollection<FacebookPostAdapter> GetFriendsPosts(ICollection<FacebookFriendAdapter> i_Friends)
+        public ICollection<IFacebookPostAdapter> GetFriendsPosts(ICollection<FacebookFriendAdapter> i_Friends)
         {
-            List<FacebookPostAdapter> posts = new List<FacebookPostAdapter>();
+            List<IFacebookPostAdapter> posts = new List<IFacebookPostAdapter>();
 
             foreach(User curUser in this.m_user.Friends)
             {
@@ -269,7 +269,7 @@ namespace OurLibrary
                         {
                             if(post.Description != null || post.Message != null)
                             {
-                                posts.Add(AdaptersFactory.CreateAdapterFromFacebookObj(post) as FacebookPostAdapter);
+                                posts.Add(AdaptersFactory.CreateAdapterFromFacebookObj(post) as IFacebookPostAdapter);
                             }
                         }
                     }

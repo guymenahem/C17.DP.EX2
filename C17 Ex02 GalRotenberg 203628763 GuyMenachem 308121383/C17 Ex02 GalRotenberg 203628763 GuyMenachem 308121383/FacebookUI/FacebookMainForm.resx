@@ -117,74 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="descriptionLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="descriptionLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="descriptionLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>567, 107</value>
-  </data>
-  <data name="descriptionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>63, 13</value>
-  </data>
-  <data name="descriptionLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="descriptionLabel.Text" xml:space="preserve">
-    <value>Description:</value>
-  </data>
-  <data name="&gt;&gt;descriptionLabel.Name" xml:space="preserve">
-    <value>descriptionLabel</value>
-  </data>
-  <data name="&gt;&gt;descriptionLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;descriptionLabel.Parent" xml:space="preserve">
-    <value>FavoritesTab</value>
-  </data>
-  <data name="&gt;&gt;descriptionLabel.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <metadata name="nameLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>False</value>
-  </metadata>
-  <data name="nameLabel.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="nameLabel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>592, 20</value>
-  </data>
-  <data name="nameLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>38, 13</value>
-  </data>
-  <data name="nameLabel.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="nameLabel.Text" xml:space="preserve">
-    <value>Name:</value>
-  </data>
-  <data name="&gt;&gt;nameLabel.Name" xml:space="preserve">
-    <value>nameLabel</value>
-  </data>
-  <data name="&gt;&gt;nameLabel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nameLabel.Parent" xml:space="preserve">
-    <value>FavoritesTab</value>
-  </data>
-  <data name="&gt;&gt;nameLabel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="buttonLogIn.Location" type="System.Drawing.Point, System.Drawing">
     <value>333, 33</value>
   </data>
   <data name="buttonLogIn.Size" type="System.Drawing.Size, System.Drawing">
     <value>143, 36</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="buttonLogIn.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
@@ -726,29 +666,50 @@
   <data name="FavoritesTab.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="&gt;&gt;imageSmallPictureBox.Name" xml:space="preserve">
-    <value>imageSmallPictureBox</value>
+  <metadata name="descriptionLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="descriptionLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
-  <data name="&gt;&gt;imageSmallPictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="descriptionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>555, 126</value>
   </data>
-  <data name="&gt;&gt;imageSmallPictureBox.Parent" xml:space="preserve">
-    <value>FavoritesTab</value>
+  <data name="descriptionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 13</value>
   </data>
-  <data name="&gt;&gt;imageSmallPictureBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="descriptionLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="&gt;&gt;nameLabel1.Name" xml:space="preserve">
-    <value>nameLabel1</value>
+  <data name="descriptionLabel.Text" xml:space="preserve">
+    <value>Description:</value>
   </data>
-  <data name="&gt;&gt;nameLabel1.Type" xml:space="preserve">
+  <data name="&gt;&gt;descriptionLabel.Name" xml:space="preserve">
+    <value>descriptionLabel</value>
+  </data>
+  <data name="&gt;&gt;descriptionLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;nameLabel1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;descriptionLabel.Parent" xml:space="preserve">
     <value>FavoritesTab</value>
   </data>
-  <data name="&gt;&gt;nameLabel1.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;descriptionLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="iFacebookPostAdapterBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>221, 17</value>
+  </metadata>
+  <data name="descriptionTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>624, 126</value>
+  </data>
+  <data name="descriptionTextBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="descriptionTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>168, 84</value>
+  </data>
+  <data name="descriptionTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
   <data name="&gt;&gt;descriptionTextBox.Name" xml:space="preserve">
     <value>descriptionTextBox</value>
@@ -760,7 +721,73 @@
     <value>FavoritesTab</value>
   </data>
   <data name="&gt;&gt;descriptionTextBox.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>1</value>
+  </data>
+  <metadata name="nameLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
+  <data name="nameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="nameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>567, 20</value>
+  </data>
+  <data name="nameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>38, 13</value>
+  </data>
+  <data name="nameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="nameLabel.Text" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.Name" xml:space="preserve">
+    <value>nameLabel</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.Parent" xml:space="preserve">
+    <value>FavoritesTab</value>
+  </data>
+  <data name="&gt;&gt;nameLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <metadata name="iFacebookPostAdapterBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>221, 17</value>
+  </metadata>
+  <data name="nameLabel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>611, 20</value>
+  </data>
+  <data name="nameLabel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="nameLabel1.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;nameLabel1.Name" xml:space="preserve">
+    <value>nameLabel1</value>
+  </data>
+  <data name="&gt;&gt;nameLabel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;nameLabel1.Parent" xml:space="preserve">
+    <value>FavoritesTab</value>
+  </data>
+  <data name="&gt;&gt;nameLabel1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="buttonLoadPosts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>103, 197</value>
+  </data>
+  <data name="buttonLoadPosts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="buttonLoadPosts.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="buttonLoadPosts.Text" xml:space="preserve">
+    <value>LoadPosts</value>
   </data>
   <data name="&gt;&gt;buttonLoadPosts.Name" xml:space="preserve">
     <value>buttonLoadPosts</value>
@@ -772,7 +799,16 @@
     <value>FavoritesTab</value>
   </data>
   <data name="&gt;&gt;buttonLoadPosts.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
+  </data>
+  <data name="listBoxPosts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>295, 20</value>
+  </data>
+  <data name="listBoxPosts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>234, 225</value>
+  </data>
+  <data name="listBoxPosts.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
   <data name="&gt;&gt;listBoxPosts.Name" xml:space="preserve">
     <value>listBoxPosts</value>
@@ -784,7 +820,16 @@
     <value>FavoritesTab</value>
   </data>
   <data name="&gt;&gt;listBoxPosts.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
+  </data>
+  <data name="checkedListBoxFriends.Location" type="System.Drawing.Point, System.Drawing">
+    <value>23, 19</value>
+  </data>
+  <data name="checkedListBoxFriends.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 154</value>
+  </data>
+  <data name="checkedListBoxFriends.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;checkedListBoxFriends.Name" xml:space="preserve">
     <value>checkedListBoxFriends</value>
@@ -796,7 +841,7 @@
     <value>FavoritesTab</value>
   </data>
   <data name="&gt;&gt;checkedListBoxFriends.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="FavoritesTab.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
@@ -824,150 +869,6 @@
   </data>
   <data name="&gt;&gt;FavoritesTab.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <metadata name="facebookPostBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="imageSmallPictureBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>742, 19</value>
-  </data>
-  <data name="imageSmallPictureBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 50</value>
-  </data>
-  <data name="imageSmallPictureBox.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;imageSmallPictureBox.Name" xml:space="preserve">
-    <value>imageSmallPictureBox</value>
-  </data>
-  <data name="&gt;&gt;imageSmallPictureBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;imageSmallPictureBox.Parent" xml:space="preserve">
-    <value>FavoritesTab</value>
-  </data>
-  <data name="&gt;&gt;imageSmallPictureBox.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <metadata name="facebookPostBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="nameLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>636, 19</value>
-  </data>
-  <data name="nameLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 23</value>
-  </data>
-  <data name="nameLabel1.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;nameLabel1.Name" xml:space="preserve">
-    <value>nameLabel1</value>
-  </data>
-  <data name="&gt;&gt;nameLabel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;nameLabel1.Parent" xml:space="preserve">
-    <value>FavoritesTab</value>
-  </data>
-  <data name="&gt;&gt;nameLabel1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="descriptionTextBox.Location" type="System.Drawing.Point, System.Drawing">
-    <value>639, 107</value>
-  </data>
-  <data name="descriptionTextBox.Multiline" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="descriptionTextBox.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
-    <value>Yes</value>
-  </data>
-  <data name="descriptionTextBox.Size" type="System.Drawing.Size, System.Drawing">
-    <value>196, 113</value>
-  </data>
-  <data name="descriptionTextBox.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="descriptionTextBox.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
-    <value>Right</value>
-  </data>
-  <data name="&gt;&gt;descriptionTextBox.Name" xml:space="preserve">
-    <value>descriptionTextBox</value>
-  </data>
-  <data name="&gt;&gt;descriptionTextBox.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;descriptionTextBox.Parent" xml:space="preserve">
-    <value>FavoritesTab</value>
-  </data>
-  <data name="&gt;&gt;descriptionTextBox.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="buttonLoadPosts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>103, 197</value>
-  </data>
-  <data name="buttonLoadPosts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="buttonLoadPosts.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="buttonLoadPosts.Text" xml:space="preserve">
-    <value>LoadPosts</value>
-  </data>
-  <data name="&gt;&gt;buttonLoadPosts.Name" xml:space="preserve">
-    <value>buttonLoadPosts</value>
-  </data>
-  <data name="&gt;&gt;buttonLoadPosts.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonLoadPosts.Parent" xml:space="preserve">
-    <value>FavoritesTab</value>
-  </data>
-  <data name="&gt;&gt;buttonLoadPosts.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="listBoxPosts.Location" type="System.Drawing.Point, System.Drawing">
-    <value>295, 20</value>
-  </data>
-  <data name="listBoxPosts.Size" type="System.Drawing.Size, System.Drawing">
-    <value>234, 225</value>
-  </data>
-  <data name="listBoxPosts.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;listBoxPosts.Name" xml:space="preserve">
-    <value>listBoxPosts</value>
-  </data>
-  <data name="&gt;&gt;listBoxPosts.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;listBoxPosts.Parent" xml:space="preserve">
-    <value>FavoritesTab</value>
-  </data>
-  <data name="&gt;&gt;listBoxPosts.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="checkedListBoxFriends.Location" type="System.Drawing.Point, System.Drawing">
-    <value>23, 19</value>
-  </data>
-  <data name="checkedListBoxFriends.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 154</value>
-  </data>
-  <data name="checkedListBoxFriends.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;checkedListBoxFriends.Name" xml:space="preserve">
-    <value>checkedListBoxFriends</value>
-  </data>
-  <data name="&gt;&gt;checkedListBoxFriends.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckedListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;checkedListBoxFriends.Parent" xml:space="preserve">
-    <value>FavoritesTab</value>
-  </data>
-  <data name="&gt;&gt;checkedListBoxFriends.ZOrder" xml:space="preserve">
-    <value>7</value>
   </data>
   <metadata name="FacebookTab.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -1494,8 +1395,14 @@
   <data name="&gt;&gt;labelName.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <metadata name="iFacebookPostAdapterBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>221, 17</value>
+  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>29</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -1512,10 +1419,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Press Login to connect</value>
   </data>
-  <data name="&gt;&gt;facebookPostBindingSource.Name" xml:space="preserve">
-    <value>facebookPostBindingSource</value>
+  <data name="&gt;&gt;iFacebookPostAdapterBindingSource.Name" xml:space="preserve">
+    <value>iFacebookPostAdapterBindingSource</value>
   </data>
-  <data name="&gt;&gt;facebookPostBindingSource.Type" xml:space="preserve">
+  <data name="&gt;&gt;iFacebookPostAdapterBindingSource.Type" xml:space="preserve">
     <value>System.Windows.Forms.BindingSource, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

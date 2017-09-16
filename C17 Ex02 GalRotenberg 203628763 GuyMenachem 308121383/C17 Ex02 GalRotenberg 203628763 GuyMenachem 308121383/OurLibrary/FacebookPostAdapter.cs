@@ -40,8 +40,8 @@ namespace OurLibrary
 
         public FacebookPostAdapter(Post i_Post)
         {
-            OriginalPost = i_Post;
-            From = new FacebookFriendAdapter(i_Post.From);
+            this.OriginalPost = i_Post;
+            this.From = new FacebookFriendAdapter(i_Post.From);
         }
 
         public override string ToString()

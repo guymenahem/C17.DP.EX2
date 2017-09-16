@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookLogicUnit;
 using OurLibrary;
-using FacebookWrapper;
 
 namespace C17_Ex01_Gal_203628763_Guy_308121383
 {
@@ -383,20 +382,20 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         private void buttonLoadPosts_Click(object sender, EventArgs e)
         {
             List<FacebookFriendAdapter> friends = new List<FacebookFriendAdapter>();
-            List<FacebookPostAdapter> posts = new List<FacebookPostAdapter>();
+            List<IFacebookPostAdapter> posts = new List<IFacebookPostAdapter>();
 
             foreach (FacebookFriendAdapter fr in this.checkedListBoxFriends.CheckedItems)
             {
                 friends.Add(fr);
             }
 
-            foreach(FacebookPostAdapter post in this.m_AppManager.GetPostsFromFriends(friends))
+            foreach(IFacebookPostAdapter post in this.m_AppManager.GetPostsFromFriends(friends))
             {
                 posts.Add(post);
             }
 
-            facebookPostBindingSource.DataSource = posts;
-            this.listBoxPosts.DisplayMember = "Description";
+            iFacebookPostAdapterBindingSource.DataSource = posts;
+            this.descriptionTextBox.Text = string.Empty;
         }
 
         /// <summary>
@@ -436,9 +435,18 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.checkedListBoxEvents.Items.Clear();
             this.checkedListBoxPosts.Items.Clear();
             this.checkedListBoxFriends.Items.Clear();
-            facebookPostBindingSource.Clear();
+            this.labelName.Text = string.Empty;
+            iFacebookPostAdapterBindingSource.Clear();
 
             this.NotifyUnLoad();
+        }
+
+        private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(this.listBoxPosts.SelectedItem != null)
+            {
+                this.descriptionTextBox.Text = ((IFacebookPostAdapter)this.listBoxPosts.SelectedItem).ToString();
+            }
         }
     }
 }

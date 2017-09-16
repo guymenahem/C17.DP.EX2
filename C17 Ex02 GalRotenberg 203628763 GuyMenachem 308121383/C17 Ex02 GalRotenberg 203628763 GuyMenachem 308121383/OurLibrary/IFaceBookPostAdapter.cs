@@ -14,5 +14,6 @@ namespace OurLibrary
         string ToString();
 
         FacebookFriendAdapter From { get; }
+
     }
 }

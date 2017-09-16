@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 
 namespace OurLibrary
@@ -36,7 +37,7 @@ namespace OurLibrary
         {
             get
             {
-                return this.Post.Description;
+                return this.ToString();
             }
         }
 
@@ -73,7 +74,18 @@ namespace OurLibrary
 
         public int CompareTo(object obj)
         {
-            return this.Post.CompareTo(obj);
+            if(obj is FacebookPostAdapterDecorator)
+            {
+                return this.Post.CompareTo(((FacebookPostAdapterDecorator)obj).Post);
+            }
+            else if(obj is FacebookPostAdapter)
+            {
+                return this.Post.CompareTo((FacebookPostAdapter)obj);
+            }
+            else
+            {
+                return -1;
+            }
         }
     }
 }
