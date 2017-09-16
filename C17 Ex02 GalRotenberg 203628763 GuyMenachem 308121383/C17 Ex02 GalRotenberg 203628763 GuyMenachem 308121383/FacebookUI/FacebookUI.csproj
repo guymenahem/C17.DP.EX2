@@ -53,15 +53,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
-    <Compile Include="ColoredChangeLabel.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="ColorChangeLabel.cs" />
     <Compile Include="FacebookMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FacebookMainForm.Designer.cs">
       <DependentUpon>FacebookMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ILoadSubject.cs" />
     <Compile Include="ListBoxLoadObserver.cs" />
     <Compile Include="ILoadObserver.cs" />
     <Compile Include="ListViewLoadObserver.cs" />

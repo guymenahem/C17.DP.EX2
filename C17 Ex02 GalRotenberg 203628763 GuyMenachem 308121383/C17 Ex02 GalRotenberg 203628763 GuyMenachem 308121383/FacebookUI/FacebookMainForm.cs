@@ -14,7 +14,7 @@ using FacebookWrapper;
 
 namespace C17_Ex01_Gal_203628763_Guy_308121383
 {
-    public partial class FacebookMainForm : Form
+    public partial class FacebookMainForm : Form, ILoadSubject
     {
         private List<ILoadObserver> m_LoadObservers;
 
@@ -45,19 +45,19 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.m_LoadObservers = new List<ILoadObserver>();
 
             // albums observer
-            this.m_LoadObservers.Add(new ListBoxLoadObserver<FacebookAlbum>(){ListBox = this.listBoxAlbums,LoadFunction = this.m_AppManager.FetchAlbums });
+            this.Observe(new ListBoxLoadObserver<FacebookAlbum>(){ListBox = this.listBoxAlbums,LoadFunction = this.m_AppManager.FetchAlbums });
 
             // EventsObserver
-            this.m_LoadObservers.Add(new ListBoxLoadObserver<FacebookEventAdapter>(){ListBox = checkedListBoxEvents, LoadFunction = this.m_AppManager.FetchEvents });
+            this.Observe(new ListBoxLoadObserver<FacebookEventAdapter>(){ListBox = checkedListBoxEvents, LoadFunction = this.m_AppManager.FetchEvents });
 
             // Posts Observer 
-            this.m_LoadObservers.Add(new ListBoxLoadObserver<FacebookPostAdapter>(){ListBox = this.checkedListBoxPosts , LoadFunction = this.m_AppManager.FetchTaggedPosts});
+            this.Observe(new ListBoxLoadObserver<FacebookPostAdapter>(){ListBox = this.checkedListBoxPosts , LoadFunction = this.m_AppManager.FetchTaggedPosts});
 
             // Fav Observer
-            this.m_LoadObservers.Add(new ListBoxLoadObserver<FacebookFriendAdapter>(){ListBox = this.checkedListBoxFriends , LoadFunction = this.m_AppManager.FetchFriends });
+            this.Observe(new ListBoxLoadObserver<FacebookFriendAdapter>(){ListBox = this.checkedListBoxFriends , LoadFunction = this.m_AppManager.FetchFriends });
 
             // Posts Observer
-            this.m_LoadObservers.Add(new ListViewLoadObserver<FacebookPostAdapter>(){ListView = this.listViewPrevPosts, LoadFunction = this.m_AppManager.FetchPosts });
+            this.Observe(new ListViewLoadObserver<FacebookPostAdapter>(){ListView = this.listViewPrevPosts, LoadFunction = this.m_AppManager.FetchPosts });
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
@@ -78,13 +78,34 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
             // set list view
             this.listViewPrevPosts.Columns.Add(string.Empty, string.Empty, this.listViewPrevPosts.Width - 20);
+        }
 
+        private void NotifyLoad()
+        {
             // Make Observers Load
             foreach (ILoadObserver observer in this.m_LoadObservers)
             {
                 observer.LoadNotify();
             }
+        }
 
+        private void NotifyUnLoad()
+        {
+            // Make Observers Load
+            foreach (ILoadObserver observer in this.m_LoadObservers)
+            {
+                observer.UnLoadNotify();
+            }
+        }
+
+        public void Observe(ILoadObserver observer)
+        {
+            this.m_LoadObservers.Add(observer);
+        }
+
+        public void RemoveObserver(ILoadObserver observer)
+        {
+            this.m_LoadObservers.Remove(observer);
         }
 
 
@@ -103,9 +124,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
             // Add label decorator
             this.labelName.Text = m_AppManager.UserName;
-            ColoredChangeLabel clb = new ColoredChangeLabel(this.labelName);
-            this.pictureBoxCoverPhoto.LoadCompleted += clb.BindToPictureUpload;
-            
+            new ColoredChangeLabel(this.labelName){PictureBox = this.pictureBoxCoverPhoto };
         }
 
         /// <summary>
@@ -423,10 +442,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.checkedListBoxFriends.Items.Clear();
             facebookPostBindingSource.Clear();
 
-            foreach(ILoadObserver obs in this.m_LoadObservers)
-            {
-                obs.UnLoadNotify();
-            }
+            this.NotifyUnLoad();
         }
     }
 }

@@ -11,8 +11,9 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 {
     class ColoredChangeLabel : Label
     {
-        private Label m_Label { get; set; }
+        public Label Label { get; set; }
         private Color m_color { get; set; }
+        private PictureBox m_pictureBox { get; set; }
 
         public Color Color
         {
@@ -24,15 +25,29 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             set
             {
                 this.m_color = value;
-                this.m_Label.BackColor = this.m_color;
-                this.m_Label.ForeColor = InvertColour();
+                this.Label.BackColor = this.m_color;
+                this.Label.ForeColor = InvertColour();
 
+            }
+        }
+
+        public PictureBox PictureBox
+        {
+            get
+            {
+                return this.m_pictureBox;
+            }
+
+            set
+            {
+                this.m_pictureBox = value;
+                this.m_pictureBox.LoadCompleted += BindToPictureUpload;
             }
         }
 
         public ColoredChangeLabel(Label i_Label)
         {
-            this.m_Label = i_Label;
+            this.Label = i_Label;
         }
 
         private Color InvertColour()
@@ -42,7 +57,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
         private void UpdateColorByPhoto(Bitmap i_Bitmap)
         {
-            this.Color = i_Bitmap.GetPixel((int)(i_Bitmap.Width * 0.1),(int)(i_Bitmap.Height * 0.7));
+            this.Color = i_Bitmap.GetPixel((int)(i_Bitmap.Width * 0.1), (int)(i_Bitmap.Height * 0.7));
         }
 
         public void BindToPictureUpload(object sender, AsyncCompletedEventArgs e)

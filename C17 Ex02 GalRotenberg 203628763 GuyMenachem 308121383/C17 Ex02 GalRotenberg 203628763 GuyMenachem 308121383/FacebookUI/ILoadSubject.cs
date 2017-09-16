@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace C17_Ex01_Gal_203628763_Guy_308121383
 {
-    public interface ILoadObserver
+    interface ILoadSubject
     {
-        void LoadNotify();
+        void Observe(ILoadObserver observer);
 
-        void UnLoadNotify();
+        void RemoveObserver(ILoadObserver observer);
     }
 }
