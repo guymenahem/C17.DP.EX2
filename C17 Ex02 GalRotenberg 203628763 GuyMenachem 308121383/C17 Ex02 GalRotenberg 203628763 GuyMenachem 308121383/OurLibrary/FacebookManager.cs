@@ -11,9 +11,10 @@ namespace FacebookLogicUnit
 {
     public class FacebookManager
     {
-
         private bool m_Connected;
-        private ICyclicEnumerator<FacebookPicture> m_Iterator=null;
+
+        private ICyclicEnumerator<FacebookPicture> m_Iterator = null;
+
         /// <summary>
         /// Cover photo URL
         /// </summary>
@@ -163,7 +164,7 @@ namespace FacebookLogicUnit
             return m_Connected;
         }
 
-        private string FromObjToPic(Object i_Pic)
+        private string FromObjToPic(object i_Pic)
         {
             FacebookPicture pic = i_Pic as FacebookPicture;
             return pic.URL;
@@ -171,11 +172,12 @@ namespace FacebookLogicUnit
 
         public string AlbumChanged(FacebookAlbum album)
         {
-            if(m_Iterator==null || m_Iterator.ID != album.ID)
+            if((m_Iterator == null) || (m_Iterator.ID != album.ID))
+            {
                 m_Iterator = (ICyclicEnumerator<FacebookPicture>)album.GetEnumerator();
+            }
 
-            return m_Iterator.Current.URL;
-            
+            return m_Iterator.Current.URL;   
         }
 
         public string NextPhoto()

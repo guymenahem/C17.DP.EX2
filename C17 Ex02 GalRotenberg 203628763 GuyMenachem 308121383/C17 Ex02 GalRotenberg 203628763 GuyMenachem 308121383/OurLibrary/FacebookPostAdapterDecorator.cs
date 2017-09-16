@@ -42,14 +42,14 @@ namespace OurLibrary
 
         public Post OriginalPost
         {
-            set
-            {
-                this.Post.OriginalPost = value;
-            }
-
             get
             {
                 return this.Post.OriginalPost;
+            }
+
+            set
+            {
+                this.Post.OriginalPost = value;
             }
         }
 

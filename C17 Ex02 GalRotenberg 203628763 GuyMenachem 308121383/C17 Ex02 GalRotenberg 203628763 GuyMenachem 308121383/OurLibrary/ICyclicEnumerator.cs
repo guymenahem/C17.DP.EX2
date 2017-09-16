@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OurLibrary
 {
-    interface ICyclicEnumerator<T> : IEnumerator<T>
+    public interface ICyclicEnumerator<T> : IEnumerator<T>
     {
         bool MovePrev();
 

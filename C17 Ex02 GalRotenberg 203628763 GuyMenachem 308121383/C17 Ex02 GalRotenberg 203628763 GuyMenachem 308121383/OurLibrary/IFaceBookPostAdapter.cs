@@ -10,7 +10,9 @@ namespace OurLibrary
     public interface IFacebookPostAdapter : IFacebookAdapter, ILikeAble, ICommentable, IComparable
     {
         Post OriginalPost { get; set; }
+
         string ToString();
+
         FacebookFriendAdapter From { get; }
     }
 }

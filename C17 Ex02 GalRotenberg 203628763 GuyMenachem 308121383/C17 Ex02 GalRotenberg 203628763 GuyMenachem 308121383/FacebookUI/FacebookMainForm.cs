@@ -45,19 +45,19 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.m_LoadObservers = new List<ILoadObserver>();
 
             // albums observer
-            this.Observe(new ListBoxLoadObserver<FacebookAlbum>(){ListBox = this.listBoxAlbums,LoadFunction = this.m_AppManager.FetchAlbums });
+            this.Observe(new ListBoxLoadObserver<FacebookAlbum>() { ListBox = this.listBoxAlbums, LoadFunction = this.m_AppManager.FetchAlbums });
 
             // EventsObserver
-            this.Observe(new ListBoxLoadObserver<FacebookEventAdapter>(){ListBox = checkedListBoxEvents, LoadFunction = this.m_AppManager.FetchEvents });
+            this.Observe(new ListBoxLoadObserver<FacebookEventAdapter>() { ListBox = checkedListBoxEvents, LoadFunction = this.m_AppManager.FetchEvents });
 
             // Posts Observer 
-            this.Observe(new ListBoxLoadObserver<FacebookPostAdapter>(){ListBox = this.checkedListBoxPosts , LoadFunction = this.m_AppManager.FetchTaggedPosts});
+            this.Observe(new ListBoxLoadObserver<FacebookPostAdapter>() { ListBox = this.checkedListBoxPosts, LoadFunction = this.m_AppManager.FetchTaggedPosts });
 
             // Fav Observer
-            this.Observe(new ListBoxLoadObserver<FacebookFriendAdapter>(){ListBox = this.checkedListBoxFriends , LoadFunction = this.m_AppManager.FetchFriends });
+            this.Observe(new ListBoxLoadObserver<FacebookFriendAdapter>() { ListBox = this.checkedListBoxFriends, LoadFunction = this.m_AppManager.FetchFriends });
 
             // Posts Observer
-            this.Observe(new ListViewLoadObserver<IFacebookPostAdapter>(){ListView = this.listViewPrevPosts, LoadFunction = this.m_AppManager.FetchPosts });
+            this.Observe(new ListViewLoadObserver<IFacebookPostAdapter>() { ListView = this.listViewPrevPosts, LoadFunction = this.m_AppManager.FetchPosts });
         }
 
         private void buttonLogIn_Click(object sender, EventArgs e)
@@ -110,7 +110,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             this.m_LoadObservers.Remove(observer);
         }
 
-
         private void InitializeComponentsForLogIN()
         {
             this.buttonLogIn.Hide();
@@ -126,7 +125,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
             // Add label decorator
             this.labelName.Text = m_AppManager.UserName;
-            new ColoredChangeLabel(this.labelName){PictureBox = this.pictureBoxCoverPhoto };
+            new ColoredChangeLabel(this.labelName) { PictureBox = this.pictureBoxCoverPhoto };
         }
 
         /// <summary>
@@ -141,7 +140,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
 
             i_ListView.Items.Insert(0, newPost);
         }
-
 
         /// <summary>
         /// Click on post button
@@ -201,11 +199,8 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         /// <param name="e"></param>
         private void buttonNextPhoto_Click(object sender, EventArgs e)
         {
-           // if (this.listBoxAlbums.SelectedIndex > -1)
-            //{
-                FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
-                this.pictureBoxUserPictures.LoadAsync(m_AppManager.NextPhoto());
-            //} 
+            FacebookAlbum album = this.listBoxAlbums.Items[this.listBoxAlbums.SelectedIndex] as FacebookAlbum;
+            this.pictureBoxUserPictures.LoadAsync(m_AppManager.NextPhoto());
         }
 
         /// <summary>
@@ -424,7 +419,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             {
                 this.LogoffProcess();
             }
-            
         }
 
         private void LogoffProcess()

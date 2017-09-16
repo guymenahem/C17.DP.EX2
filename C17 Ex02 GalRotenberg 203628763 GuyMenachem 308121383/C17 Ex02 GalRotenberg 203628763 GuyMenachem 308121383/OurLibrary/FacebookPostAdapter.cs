@@ -30,10 +30,9 @@ namespace OurLibrary
         {
             get
             {
-                return (this.OriginalPost.Name != null) ? this.OriginalPost.Name : string.Empty; ;
+                return (this.OriginalPost.Name != null) ? this.OriginalPost.Name : string.Empty;
             }
         }
-
 
         public FacebookFriendAdapter From { get; private set; }
         

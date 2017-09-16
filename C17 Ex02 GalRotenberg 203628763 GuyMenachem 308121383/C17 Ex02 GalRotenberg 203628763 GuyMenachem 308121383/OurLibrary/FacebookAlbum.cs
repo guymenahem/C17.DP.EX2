@@ -46,6 +46,7 @@ namespace OurLibrary
                 m_Index = 0;
                 m_Count = i_AlbumToScan.m_Photos.Count;
             }
+
             public bool MoveNext()
             {
                 if(++m_Index < m_Count)
@@ -65,7 +66,6 @@ namespace OurLibrary
                 {
                     m_Index = m_Count - 1;
                     return false;
-                    
                 }
                 else
                 {
@@ -94,7 +94,6 @@ namespace OurLibrary
             }
         }
       
-
         private bool m_HasPhotos;
 
         private int m_CurPhoto;

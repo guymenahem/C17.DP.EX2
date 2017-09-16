@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace C17_Ex01_Gal_203628763_Guy_308121383
 {
-    interface ILoadSubject
+    public interface ILoadSubject
     {
         void Observe(ILoadObserver observer);
 

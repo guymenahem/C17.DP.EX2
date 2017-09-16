@@ -8,10 +8,11 @@ using System.Windows.Forms;
 
 namespace C17_Ex01_Gal_203628763_Guy_308121383
 {
-    class ListBoxLoadObserver<T> : ILoadObserver
+    public class ListBoxLoadObserver<T> : ILoadObserver
     {
         public ListBox ListBox { get; set; }
-        public Func<ICollection<T>> LoadFunction {get; set;}
+
+        public Func<ICollection<T>> LoadFunction { get; set; }
 
         public void LoadNotify()
         {

@@ -171,7 +171,7 @@ namespace OurLibrary
             {
                 foreach (Post post in friend.Posts)
                 {
-                    if(post.TargetUsers!=null)
+                    if(post.TargetUsers != null)
                     {
                         foreach (User tagged in post.TargetUsers)
                         {
@@ -229,7 +229,6 @@ namespace OurLibrary
 
             return rslt;
         }
-
 
         public ICollection<IFacebookPostAdapter> FetchPosts()
         {

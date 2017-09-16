@@ -9,10 +9,12 @@ using System.Windows.Forms;
 
 namespace C17_Ex01_Gal_203628763_Guy_308121383
 {
-    class ColoredChangeLabel : Label
+    public class ColoredChangeLabel : Label
     {
         public Label Label { get; set; }
+
         private Color m_color { get; set; }
+
         private PictureBox m_pictureBox { get; set; }
 
         public Color Color
@@ -27,7 +29,6 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
                 this.m_color = value;
                 this.Label.BackColor = this.m_color;
                 this.Label.ForeColor = InvertColour();
-
             }
         }
 

@@ -10,8 +10,7 @@ namespace OurLibrary
     {
         public FacebookPostAdaFullTitleDecorator(IFacebookPostAdapter post)
             : base(post)
-        {
-            
+        {  
         }
 
         public override string ToString()
