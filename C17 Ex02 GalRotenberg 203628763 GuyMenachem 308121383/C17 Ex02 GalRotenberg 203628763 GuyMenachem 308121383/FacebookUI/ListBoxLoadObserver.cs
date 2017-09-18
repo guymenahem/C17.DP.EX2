@@ -29,7 +29,7 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         {
             foreach(T item in LoadFunction.Invoke())
             {
-                if(item != null)
+                if(item != null)    //bug of the api - events load some events that are no longer exist, thus some items are null objects.
                 {
                     this.ListBox.Invoke(new Action(() => this.ListBox.Items.Add(item)));
                 }
