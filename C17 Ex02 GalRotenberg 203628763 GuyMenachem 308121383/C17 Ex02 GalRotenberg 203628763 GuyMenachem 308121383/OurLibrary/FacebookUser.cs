@@ -309,5 +309,10 @@ namespace OurLibrary
                 }
             }
         }
+
+        public void Disconnect(Action i_CallBack)
+        {
+            FacebookService.Logout(i_CallBack);
+        }
     }
 }

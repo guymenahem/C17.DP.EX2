@@ -439,6 +439,13 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
             iFacebookPostAdapterBindingSource.Clear();
 
             this.NotifyUnLoad();
+
+            FacebookUser.Instance().Disconnect(SuccesfulLogOut);
+        }
+
+        private void SuccesfulLogOut()
+        {
+            MessageBox.Show("Disconnected succesfuly");
         }
 
         private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)

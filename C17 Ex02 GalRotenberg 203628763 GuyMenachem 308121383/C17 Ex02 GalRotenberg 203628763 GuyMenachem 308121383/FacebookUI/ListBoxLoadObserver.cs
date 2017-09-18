@@ -29,7 +29,10 @@ namespace C17_Ex01_Gal_203628763_Guy_308121383
         {
             foreach(T item in LoadFunction.Invoke())
             {
-                this.ListBox.Invoke(new Action(() => this.ListBox.Items.Add(item)));
+                if(item != null)
+                {
+                    this.ListBox.Invoke(new Action(() => this.ListBox.Items.Add(item)));
+                }
             }
         }
     }
